@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjwaqdubpe7r"]
+
+[ext_resource type="PackedScene" uid="uid://cxbqb6coacdyn" path="res://Player.tscn" id="1_x8gmp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flesm"]
+size = Vector2(1154, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc4m0"]
+size = Vector2(74, 637)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu703"]
+size = Vector2(74, 635)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qh638"]
+size = Vector2(456, 66)
+
+[node name="Arena" type="Node2D"]
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(0, 8)
+
+[node name="Player" parent="Player" instance=ExtResource("1_x8gmp")]
+position = Vector2(616, 544)
+
+[node name="Floor" type="StaticBody2D" parent="." groups=["Terrain"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" groups=["Terrain"]]
+position = Vector2(575, 607)
+shape = SubResource("RectangleShape2D_flesm")
+
+[node name="Panel" type="Panel" parent="Floor"]
+offset_left = -8.0
+offset_top = 576.0
+offset_right = 1152.0
+offset_bottom = 640.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Wall1" type="StaticBody2D" parent="." groups=["Terrain"]]
+
+[node name="Panel" type="Panel" parent="Wall1"]
+offset_right = 72.0
+offset_bottom = 640.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1" groups=["Terrain"]]
+position = Vector2(32, 320)
+shape = SubResource("RectangleShape2D_mc4m0")
+
+[node name="Wall2" type="StaticBody2D" parent="." groups=["Terrain"]]
+
+[node name="Panel" type="Panel" parent="Wall2"]
+offset_left = 1080.0
+offset_right = 1152.0
+offset_bottom = 640.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" groups=["Terrain"]]
+position = Vector2(1115, 322.5)
+shape = SubResource("RectangleShape2D_wu703")
+
+[node name="Platform1" type="StaticBody2D" parent="." groups=["Terrain"]]
+
+[node name="Panel" type="Panel" parent="Platform1"]
+offset_left = 416.0
+offset_top = 288.0
+offset_right = 872.0
+offset_bottom = 352.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" groups=["Terrain"]]
+position = Vector2(644, 320)
+shape = SubResource("RectangleShape2D_qh638")

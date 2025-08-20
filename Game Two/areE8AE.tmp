@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjwaqdubpe7r"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_6qea0"]
+[ext_resource type="Texture2D" uid="uid://mju4qm28u6s6" path="res://images/Peng.jpg" id="1_7ifr1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flesm"]
+size = Vector2(1154, 66)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nynje"]
+radius = 24.0
+height = 64.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_daj06"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7ifr1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Arena" type="Node2D"]
+
+[node name="Floor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(575, 607)
+shape = SubResource("RectangleShape2D_flesm")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_6qea0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(768, 496)
+shape = SubResource("CapsuleShape2D_nynje")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(767.75, 495)
+scale = Vector2(0.165505, 0.163158)
+sprite_frames = SubResource("SpriteFrames_daj06")

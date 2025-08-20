@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://de7pm34rvh5cf"]
+
+[ext_resource type="Script" path="res://character_selection.gd" id="1_oas7r"]
+
+[node name="Character_Selection" type="Node2D"]
+script = ExtResource("1_oas7r")
+
+[node name="Hook_Guy" type="Button" parent="."]
+offset_left = 320.0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 128.0
+text = "Hook"
+
+[node name="Bounce_Guy" type="Button" parent="."]
+offset_left = 448.0
+offset_top = 64.0
+offset_right = 512.0
+offset_bottom = 128.0
+text = "Bounce"
+
+[node name="Back" type="Button" parent="."]
+offset_left = 320.0
+offset_top = 544.0
+offset_right = 896.0
+offset_bottom = 576.0
+text = "Back"
+
+[connection signal="pressed" from="Hook_Guy" to="." method="_on_hook_guy_pressed"]
+[connection signal="pressed" from="Bounce_Guy" to="." method="_on_bounce_guy_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

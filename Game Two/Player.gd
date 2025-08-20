@@ -1,0 +1,110 @@
+extends CharacterBody2D
+
+var Hook  = load("res://Hook.tscn")
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var hookScene
+var hook
+var rope
+var hookIsFired
+var hook_starting_position
+var swing_speed = 400.0
+
+func _ready():
+	hookIsFired = false
+
+func _physics_process(delta):
+	
+	# Handle jump.
+	if Input.is_action_just_pressed("peng_jump") && is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# one axis that can go both ways (a and d)
+	var direction = Input.get_axis("peng_moveLeft", "peng_moveRight")
+	#two axes (such as joystick or WASD movement)
+	var aim = Input.get_vector("peng_moveLeft", "peng_moveRight", "peng_lookUp", "peng_lookDown")
+	
+	if is_on_floor() && direction:
+		if direction == -1:
+			get_node("AnimatedSprite2D").flip_h = true
+		elif direction == 1:
+			get_node("AnimatedSprite2D").flip_h = false
+		velocity.x = direction * SPEED
+	elif is_on_floor():
+		velocity.x = move_toward(velocity.x, 0, SPEED/4)
+
+	# jump
+	if Input.is_action_just_pressed("peng_jump") && is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		
+	if Input.is_action_just_pressed("peng_hook"):
+		shoot(aim)
+		
+	if hookIsFired:
+		rope.set_point_position(0, get_player_position())
+	else:
+		swing_speed = 400.0
+		
+	#swinging movement
+	if !is_on_floor():
+		if hookIsFired && hook.isStuck:
+			var hook_direction_x = hook.global_position.x - $Hand.global_position.x
+			var hook_direction_y = $Hand.global_position.y - hook.global_position.y
+			var hook_distance = $Hand.global_position.distance_to(hook.global_position)
+			print(swing_speed)
+			#calculation leads to a smooth circular movement
+			if hook_direction_x > 0:
+				#true = swing to the right
+				if hook.swingdirection:
+					velocity.x = swing_speed * hook_direction_y / hook_distance
+					velocity.y = swing_speed * hook_direction_x / hook_distance
+				#false = swing to the left
+				else:
+					velocity.x = swing_speed * -hook_direction_y / hook_distance
+					velocity.y = swing_speed * -hook_direction_x / hook_distance
+			else:
+				#true = swing to the right
+				if hook.swingdirection:
+					velocity.x = swing_speed * hook_direction_y / hook_distance
+					velocity.y = swing_speed * hook_direction_x / hook_distance
+				#false = swing to the left
+				else:
+					velocity.x = swing_speed * -hook_direction_y / hook_distance
+					velocity.y = swing_speed * -hook_direction_x / hook_distance
+		else:
+			# adds gravity 
+			velocity.y += gravity * delta
+	
+	#move_and_slide returns true while colliding
+	var collision = move_and_slide()
+	if collision:
+		if hookIsFired && hook.isStuck:	
+			hookScene.queue_free()
+			hookIsFired = false
+		#if collision.is_in_group("Terrain"):
+		#	print("yeah")
+		
+func shoot(aim: Vector2):
+	if hookIsFired:	
+		hookScene.queue_free()
+		hookIsFired = false
+	else:
+		hookScene = Hook.instantiate()
+		owner.add_child(hookScene)
+		hookScene.transform = $Hand.global_transform
+		if get_node("AnimatedSprite2D").flip_h:
+			hookScene.transform[2].x -= 2* $Hand.transform[2].x
+		hook = hookScene.find_child("Hook")
+		hook.rotation = aim.angle()
+		hook_starting_position = hook.global_position
+		rope = hookScene.find_child("Line2D")
+		hookIsFired = true
+	
+func get_player_position():
+	var hand_current_position = $Hand.global_position
+	
+	return Vector2(hand_current_position.x - hook_starting_position.x,hand_current_position.y - hook_starting_position.y)

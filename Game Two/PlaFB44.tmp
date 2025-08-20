@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxbqb6coacdyn"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_25nip"]
+[ext_resource type="Texture2D" uid="uid://mju4qm28u6s6" path="res://images/Peng.jpg" id="2_rbcki"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gfq82"]
+radius = 16.0
+height = 48.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2khrm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rbcki")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_25nip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_gfq82")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.875, 1.52588e-05)
+scale = Vector2(0.124564, 0.121053)
+sprite_frames = SubResource("SpriteFrames_2khrm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Hand" type="Marker2D" parent="."]
+position = Vector2(-10, 15)
