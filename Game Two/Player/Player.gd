@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var Hook  = load("res://Hook.tscn")
+var Hook  = load("res://Player/Hook.tscn")
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -55,7 +55,6 @@ func _physics_process(delta):
 			var hook_direction_x = hook.global_position.x - $Hand.global_position.x
 			var hook_direction_y = $Hand.global_position.y - hook.global_position.y
 			var hook_distance = $Hand.global_position.distance_to(hook.global_position)
-			print(swing_speed)
 			#calculation leads to a smooth circular movement
 			if hook_direction_x > 0:
 				#true = swing to the right

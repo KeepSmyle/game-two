@@ -1,5 +1,6 @@
 extends Node2D
 
+var character = "Hook_Guy"
 
 func _ready():
 	pass 

@@ -8,8 +8,8 @@ func _on_back_pressed():
 
 
 func _on_hook_guy_pressed():
-	Arena.character = "Hook_Guy"
+	Main.character = "Hook_Guy"
 
 
 func _on_bounce_guy_pressed():
-	Arena.character = "Bounce_Guy"
+	Main.character = "Bounce_Guy"

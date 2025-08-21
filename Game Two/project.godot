@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Arena="*res://arena.gd"
+Main="*res://main_menu.gd"
 
 [input]
 

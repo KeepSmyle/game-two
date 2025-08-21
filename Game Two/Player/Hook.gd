@@ -21,7 +21,6 @@ func _physics_process(delta):
 	rope.set_point_position(1, position)
 
 func _on_Terrain_body_entered(body:Node):
-	print(Arena.character)
 	if body.is_in_group("Terrain"):
 		speed = 0
 		isStuck = true

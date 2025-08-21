@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bjwaqdubpe7r"]
 
-[ext_resource type="PackedScene" uid="uid://cxbqb6coacdyn" path="res://Player.tscn" id="1_x8gmp"]
+[ext_resource type="Script" path="res://arena.gd" id="1_g8oae"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flesm"]
 size = Vector2(1154, 66)
@@ -15,12 +15,10 @@ size = Vector2(74, 635)
 size = Vector2(456, 66)
 
 [node name="Arena" type="Node2D"]
+script = ExtResource("1_g8oae")
 
 [node name="Player" type="Node2D" parent="."]
 position = Vector2(0, 8)
-
-[node name="Player" parent="Player" instance=ExtResource("1_x8gmp")]
-position = Vector2(616, 544)
 
 [node name="Floor" type="StaticBody2D" parent="." groups=["Terrain"]]
 
