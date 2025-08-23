@@ -6,7 +6,7 @@ var hook
 var rope
 var hookIsFired
 var hook_starting_position
-var swing_speed = 400.0
+var swing_speed = 500.0
 
 func _ready():
 	hookIsFired = false
@@ -32,7 +32,7 @@ func _physics_process(delta):
 	elif is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, SPEED/4)
 		
-	if Input.is_action_just_pressed("peng_hook"):
+	if Input.is_action_just_pressed("peng_action"):
 		shoot(aim)
 		
 	if hookIsFired:
@@ -65,9 +65,7 @@ func _physics_process(delta):
 				else:
 					velocity.x = swing_speed * -hook_direction_y / hook_distance
 					velocity.y = swing_speed * -hook_direction_x / hook_distance
-	
-	#move_and_slide returns true while colliding
-	var collision = move_and_slide()
+
 	if collision:
 		if hookIsFired && hook.isStuck:	
 			hookScene.queue_free()

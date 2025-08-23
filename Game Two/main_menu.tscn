@@ -19,6 +19,12 @@ offset_right = 632.0
 offset_bottom = 264.0
 text = "Character Selection"
 
+[node name="Selected Character" type="Label" parent="."]
+offset_left = 672.0
+offset_top = 208.0
+offset_right = 744.0
+offset_bottom = 264.0
+
 [node name="Settings" type="Button" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0

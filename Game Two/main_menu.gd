@@ -1,9 +1,11 @@
 extends Node2D
 
-var character = "Bounce_Guy"
+var character = "Hook_Guy"
 
 func _ready():
-	pass 
+	var label = find_child("Selected Character")
+	if label:
+		label.set_text(character.erase(character.length() - 4, 4))
 
 
 func _on_quit_pressed():
