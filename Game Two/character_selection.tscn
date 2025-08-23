@@ -10,6 +10,7 @@ offset_left = 320.0
 offset_top = 64.0
 offset_right = 384.0
 offset_bottom = 128.0
+toggle_mode = true
 text = "Hook"
 
 [node name="Bounce_Guy" type="Button" parent="."]
@@ -17,6 +18,7 @@ offset_left = 448.0
 offset_top = 64.0
 offset_right = 512.0
 offset_bottom = 128.0
+toggle_mode = true
 text = "Bounce"
 
 [node name="Back" type="Button" parent="."]
