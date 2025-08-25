@@ -1,6 +1,6 @@
 extends Node2D
 
-var character = "Hook_Guy"
+var character = "Bounce_Guy"
 
 func _ready():
 	var label = find_child("Selected Character")
