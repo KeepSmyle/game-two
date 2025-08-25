@@ -4,7 +4,7 @@ var direction
 var aim
 var collision
 
-const SPEED = 300.0
+var SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -40,6 +40,12 @@ func _standart_movement(delta):
 	# adds gravity 
 	if !is_on_floor():
 		velocity.y += gravity * delta
+	
+	# Handle sprint
+	if Input.is_action_pressed("peng_sprint") && is_on_floor():
+		SPEED = 500
+	if Input.is_action_just_released("peng_sprint"):
+		SPEED = 300
 		
 	#move_and_slide returns true while colliding
 	collision = move_and_slide()
