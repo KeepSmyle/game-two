@@ -21,6 +21,14 @@ offset_bottom = 128.0
 toggle_mode = true
 text = "Bounce"
 
+[node name="Hop_Guy" type="Button" parent="."]
+offset_left = 575.0
+offset_top = 64.0
+offset_right = 641.0
+offset_bottom = 128.0
+toggle_mode = true
+text = "Hop"
+
 [node name="Back" type="Button" parent="."]
 offset_left = 320.0
 offset_top = 544.0
@@ -30,4 +38,6 @@ text = "Back"
 
 [connection signal="pressed" from="Hook_Guy" to="." method="_on_hook_guy_pressed"]
 [connection signal="pressed" from="Bounce_Guy" to="." method="_on_bounce_guy_pressed"]
+[connection signal="pressed" from="Hop_Guy" to="." method="_on_hop_guy_pressed"]
+[connection signal="pressed" from="Hop_Guy" to="." method="_on_bounce_guy_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

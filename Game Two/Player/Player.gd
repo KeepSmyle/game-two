@@ -5,7 +5,7 @@ var aim
 var collision
 
 var SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+var JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -18,10 +18,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _standart_movement(delta):
-		
-	# Handle jump.
-	if Input.is_action_just_pressed("peng_jump") && is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	
+	_jump()
+	_sprint()
 
 	# one axis that can go both ways (a and d)
 	direction = Input.get_axis("peng_moveLeft", "peng_moveRight")
@@ -41,11 +40,18 @@ func _standart_movement(delta):
 	if !is_on_floor():
 		velocity.y += gravity * delta
 	
+		
+	#move_and_slide returns true while colliding
+	collision = move_and_slide()
+
+func _jump():
+	# Handle jump.
+	if Input.is_action_just_pressed("peng_jump") && is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+func _sprint():
 	# Handle sprint
 	if Input.is_action_pressed("peng_sprint") && is_on_floor():
 		SPEED = 500
 	if Input.is_action_just_released("peng_sprint"):
 		SPEED = 300
-		
-	#move_and_slide returns true while colliding
-	collision = move_and_slide()

@@ -2,6 +2,7 @@ extends Node2D
 
 var Bounce_Player = load("res://Player/Player_bounce.tscn")
 var Hook_Player = load("res://Player/Player_hook.tscn")
+var Hop_Player = load("res://Player/Player_hop.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,6 +13,8 @@ func _ready():
 			playerScene = Hook_Player.instantiate()
 		"Bounce_Guy":
 			playerScene = Bounce_Player.instantiate()
+		"Hop_Guy":
+			playerScene = Hop_Player.instantiate()
 			
 	find_child("Player").add_child(playerScene)
 	playerScene.set_owner(playerScene.get_parent())
