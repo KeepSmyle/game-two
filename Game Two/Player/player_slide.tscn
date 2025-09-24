@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://5tjygusc4aas"]
 
 [ext_resource type="Script" path="res://Player/player_slide.gd" id="1_pcakd"]
-[ext_resource type="Texture2D" uid="uid://cf7dfriccwgqw" path="res://images/Frog.jpg" id="1_vupcn"]
+[ext_resource type="Texture2D" uid="uid://mju4qm28u6s6" path="res://images/Peng.jpg" id="2_cygc7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bb5yx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_vupcn")
+"texture": ExtResource("2_cygc7")
 }],
 "loop": true,
 "name": &"default",

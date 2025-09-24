@@ -21,12 +21,13 @@ func _on_hop_guy_pressed():
 	_untoggle_all()
 	Main.character = "Bounce_Guy"
 	find_child("Hop_Guy").button_pressed = true
+
+func _on_slide_guy_pressed():
+	_untoggle_all()
+	Main.character = "Slide_Guy"
+	find_child("Slide_Guy").button_pressed = true
 	
 	
 func _untoggle_all():
 	find_child("Hook_Guy").button_pressed = false
 	find_child("Bounce_Guy").button_pressed = false
-	
-
-
-

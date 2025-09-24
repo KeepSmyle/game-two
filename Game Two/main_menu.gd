@@ -1,6 +1,6 @@
 extends Node2D
 
-var character = "Hop_Guy"
+var character = "Slide_Guy"
 var label
 
 func _ready():
