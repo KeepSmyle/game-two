@@ -15,7 +15,6 @@ func _ready():
 
 func _physics_process(delta):	
 	_standart_movement(delta)
-	move_and_slide()
 
 func _standart_movement(delta):
 	

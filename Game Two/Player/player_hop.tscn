@@ -31,3 +31,9 @@ zoom = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_nh2kt")
+
+[node name="HopCooldown" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="HopCooldown" to="." method="_on_hop_cooldown_timeout"]
