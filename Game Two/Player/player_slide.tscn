@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://5tjygusc4aas"]
+
+[ext_resource type="Script" path="res://Player/player_slide.gd" id="1_pcakd"]
+[ext_resource type="Texture2D" uid="uid://cf7dfriccwgqw" path="res://images/Frog.jpg" id="1_vupcn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bb5yx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vupcn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a5fog"]
+radius = 16.0
+height = 32.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_pcakd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.66446, 1.66893e-06)
+scale = Vector2(0.123401, 0.100946)
+sprite_frames = SubResource("SpriteFrames_bb5yx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_a5fog")

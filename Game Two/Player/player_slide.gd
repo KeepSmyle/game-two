@@ -1,10 +1,7 @@
 extends "res://Player/Player.gd"
 
-var hopWait = false
-var hopTimerStart = false
-
 func _ready():
-	JUMP_VELOCITY = -600
+	pass
 
 func _physics_process(delta):
 	
@@ -19,10 +16,6 @@ func _physics_process(delta):
 		SPEED = 200.0
 		JUMP_VELOCITY = 0
 		_standart_movement(delta)
-	
-	if hopWait && velocity.y == 0 && !hopTimerStart:
-		hopTimerStart = true
-		$HopCooldown.start()
 
 func _hop_movement(delta):
 	direction = Input.get_axis("peng_moveLeft", "peng_moveRight")
@@ -36,6 +29,9 @@ func _hop_movement(delta):
 			get_node("AnimatedSprite2D").flip_h = false
 		velocity.x = direction * SPEED
 		velocity.y = JUMP_VELOCITY
+	if collision:
+		print(hopWait)
+		print(velocity.y)
 	
 	# adds gravity 
 	if !is_on_floor():
@@ -54,4 +50,5 @@ func _sprint():
 	pass
 	
 func _on_hop_cooldown_timeout():
+	print("now")
 	hopWait = false
