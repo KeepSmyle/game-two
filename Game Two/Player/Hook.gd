@@ -20,7 +20,7 @@ func _physics_process(delta):
 	position += transform.x * speed * delta
 	rope.set_point_position(1, position)
 
-func _on_Terrain_body_entered(body:Node):
+func _on_Terrain_body_entered(body):
 	if body.is_in_group("Terrain"):
 		speed = 0
 		isStuck = true

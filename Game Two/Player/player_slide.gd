@@ -16,8 +16,6 @@ func _physics_process(delta):
 		_standart_movement(delta)
 
 func _slide_movement(delta):
-	#todo: rotate sprite
-	
 	direction = Input.get_axis("peng_moveLeft", "peng_moveRight")
 	
 	if is_on_floor() && direction:
