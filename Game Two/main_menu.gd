@@ -1,6 +1,7 @@
 extends Node2D
 
 var character = "Slide_Guy"
+var portal_ready = true
 var label
 
 func _ready():
