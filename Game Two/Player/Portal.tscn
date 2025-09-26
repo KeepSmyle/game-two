@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://mg26tku4my3h"]
+
+[ext_resource type="Script" path="res://Portal.gd" id="1_6qvcf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1cic"]
+size = Vector2(24, 40)
+
+[node name="Portal" type="Area2D"]
+script = ExtResource("1_6qvcf")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 24.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Portal"]]
+position = Vector2(12, 20)
+shape = SubResource("RectangleShape2D_e1cic")

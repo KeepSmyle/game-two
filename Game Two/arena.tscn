@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bjwaqdubpe7r"]
 
 [ext_resource type="Script" path="res://arena.gd" id="1_g8oae"]
-[ext_resource type="Script" path="res://Portal_in.gd" id="2_73ie3"]
+[ext_resource type="Script" path="res://Portal.gd" id="2_gj0b1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flesm"]
 size = Vector2(1154, 66)
@@ -73,16 +73,30 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(644, 320)
 shape = SubResource("RectangleShape2D_qh638")
 
-[node name="Portal_in" type="Area2D" parent="."]
-position = Vector2(1064, 520)
-script = ExtResource("2_73ie3")
+[node name="Portals" type="Node2D" parent="."]
+position = Vector2(680, 232)
 
-[node name="Panel" type="Panel" parent="Portal_in"]
-offset_left = 8.0
-offset_top = 16.0
-offset_right = 32.0
-offset_bottom = 56.0
+[node name="Portal_1" type="Area2D" parent="Portals"]
+position = Vector2(376, 304)
+script = ExtResource("2_gj0b1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_in" groups=["Portal"]]
-position = Vector2(20, 36)
+[node name="Panel" type="Panel" parent="Portals/Portal_1"]
+offset_right = 24.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portals/Portal_1" groups=["Portal"]]
+position = Vector2(12, 20)
+shape = SubResource("RectangleShape2D_hrm3h")
+
+[node name="Portal_2" type="Area2D" parent="Portals"]
+script = ExtResource("2_gj0b1")
+
+[node name="Panel" type="Panel" parent="Portals/Portal_2"]
+offset_right = 24.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portals/Portal_2" groups=["Portal"]]
+position = Vector2(12, 20)
 shape = SubResource("RectangleShape2D_hrm3h")
