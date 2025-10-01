@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpy4exexs81kn"]
+
+[ext_resource type="Texture2D" uid="uid://mju4qm28u6s6" path="res://images/Peng.jpg" id="1_pceb2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vlnl0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pceb2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Test_Sprite" type="AnimatedSprite2D"]
+position = Vector2(1.66446, 1.66893e-06)
+scale = Vector2(0.123401, 0.100946)
+sprite_frames = SubResource("SpriteFrames_vlnl0")

@@ -14,7 +14,6 @@ func _process(delta):
 
 func _on_Player_body_entered(body):
 	if body.is_in_group("Player"):
-		print(Main.portal_ready)
 		if Main.portal_ready:
 			var portal_route = _get_portal_route()
 			body.global_transform[2].x += portal_route[0]
@@ -36,4 +35,3 @@ func _get_portal_route():
 
 func _on_portal_cooldown_timeout():
 	Main.portal_ready = true
-	print("now")
