@@ -9,7 +9,7 @@ var slide_sprite = load("res://Player/Player_Slide/sprite_slide.tscn").instantia
 var hook_script = load("res://Player/Player_Hook/player_hook.gd")
 var bounce_script = load("res://Player/Player_Bounce/player_bounce.gd")
 var hop_script = load("res://Player/Player_Hop/player_hop.gd")
-var slide_script = load("res://Player/Player_Hook/player_slide.gd")
+var slide_script = load("res://Player/Player_Slide/player_slide.gd")
 
 var hop_cooldown = load("res://Player/Player_Hop/hop_cooldown.tscn").instantiate()
 var hook_hand = load("res://Player/Player_Hook/hook_hand.tscn").instantiate()

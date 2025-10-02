@@ -14,6 +14,6 @@ animations = [{
 }]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
-position = Vector2(1.66446, -1.58988)
-scale = Vector2(0.123401, 0.0925783)
+position = Vector2(1.66446, -4)
+scale = Vector2(0.123401, 0.105263)
 sprite_frames = SubResource("SpriteFrames_vlnl0")
