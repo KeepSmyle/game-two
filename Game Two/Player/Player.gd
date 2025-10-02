@@ -42,6 +42,7 @@ func _standart_movement(delta):
 		
 	#move_and_slide returns true while colliding
 	collision = move_and_slide()
+	
 
 func _jump():
 	# Handle jump.

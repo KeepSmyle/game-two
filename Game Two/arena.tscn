@@ -1,12 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjwaqdubpe7r"]
+[gd_scene load_steps=11 format=3 uid="uid://bjwaqdubpe7r"]
 
 [ext_resource type="Script" path="res://arena.gd" id="1_g8oae"]
 [ext_resource type="Script" path="res://Portal.gd" id="2_gj0b1"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="2_ydpjl"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gptn"]
-radius = 16.0
-height = 32.0
+[ext_resource type="Script" path="res://Pause_Menu.gd" id="3_ci3qm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flesm"]
 size = Vector2(1154, 66)
@@ -20,11 +17,66 @@ size = Vector2(74, 635)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qh638"]
 size = Vector2(456, 66)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gptn"]
+radius = 16.0
+height = 32.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrm3h"]
 size = Vector2(24, 40)
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_g8oae")
+
+[node name="Walls_Floors" type="Node2D" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="Walls_Floors" groups=["Terrain"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_Floors/Floor" groups=["Terrain"]]
+position = Vector2(575, 607)
+shape = SubResource("RectangleShape2D_flesm")
+
+[node name="Panel" type="Panel" parent="Walls_Floors/Floor"]
+offset_left = -8.0
+offset_top = 576.0
+offset_right = 1152.0
+offset_bottom = 640.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Wall1" type="StaticBody2D" parent="Walls_Floors" groups=["Terrain"]]
+
+[node name="Panel" type="Panel" parent="Walls_Floors/Wall1"]
+offset_right = 72.0
+offset_bottom = 640.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_Floors/Wall1" groups=["Terrain"]]
+position = Vector2(32, 320)
+shape = SubResource("RectangleShape2D_mc4m0")
+
+[node name="Wall2" type="StaticBody2D" parent="Walls_Floors" groups=["Terrain"]]
+
+[node name="Panel" type="Panel" parent="Walls_Floors/Wall2"]
+offset_left = 1080.0
+offset_right = 1152.0
+offset_bottom = 640.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_Floors/Wall2" groups=["Terrain"]]
+position = Vector2(1115, 322.5)
+shape = SubResource("RectangleShape2D_wu703")
+
+[node name="Platform1" type="StaticBody2D" parent="Walls_Floors" groups=["Terrain"]]
+
+[node name="Panel" type="Panel" parent="Walls_Floors/Platform1"]
+offset_left = 416.0
+offset_top = 288.0
+offset_right = 872.0
+offset_bottom = 352.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_Floors/Platform1" groups=["Terrain"]]
+position = Vector2(644, 320)
+shape = SubResource("RectangleShape2D_qh638")
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
 position = Vector2(576, 264)
@@ -36,54 +88,27 @@ zoom = Vector2(1.5, 1.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=["Player"]]
 shape = SubResource("CapsuleShape2D_3gptn")
 
-[node name="Floor" type="StaticBody2D" parent="." groups=["Terrain"]]
+[node name="Pause_Menu" type="Node2D" parent="Player"]
+process_mode = 2
+visible = false
+position = Vector2(-576, -264)
+script = ExtResource("3_ci3qm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" groups=["Terrain"]]
-position = Vector2(575, 607)
-shape = SubResource("RectangleShape2D_flesm")
-
-[node name="Panel" type="Panel" parent="Floor"]
-offset_left = -8.0
-offset_top = 576.0
-offset_right = 1152.0
-offset_bottom = 640.0
+[node name="Continue" type="Button" parent="Player/Pause_Menu"]
+offset_left = 464.0
+offset_top = 152.0
+offset_right = 688.0
+offset_bottom = 208.0
+text = "Continue"
 metadata/_edit_use_anchors_ = true
 
-[node name="Wall1" type="StaticBody2D" parent="." groups=["Terrain"]]
-
-[node name="Panel" type="Panel" parent="Wall1"]
-offset_right = 72.0
-offset_bottom = 640.0
+[node name="Main_Menu" type="Button" parent="Player/Pause_Menu"]
+offset_left = 464.0
+offset_top = 376.0
+offset_right = 688.0
+offset_bottom = 440.0
+text = "Main Menu"
 metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1" groups=["Terrain"]]
-position = Vector2(32, 320)
-shape = SubResource("RectangleShape2D_mc4m0")
-
-[node name="Wall2" type="StaticBody2D" parent="." groups=["Terrain"]]
-
-[node name="Panel" type="Panel" parent="Wall2"]
-offset_left = 1080.0
-offset_right = 1152.0
-offset_bottom = 640.0
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" groups=["Terrain"]]
-position = Vector2(1115, 322.5)
-shape = SubResource("RectangleShape2D_wu703")
-
-[node name="Platform1" type="StaticBody2D" parent="." groups=["Terrain"]]
-
-[node name="Panel" type="Panel" parent="Platform1"]
-offset_left = 416.0
-offset_top = 288.0
-offset_right = 872.0
-offset_bottom = 352.0
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" groups=["Terrain"]]
-position = Vector2(644, 320)
-shape = SubResource("RectangleShape2D_qh638")
 
 [node name="Portals" type="Node2D" parent="."]
 position = Vector2(680, 232)
@@ -117,4 +142,6 @@ shape = SubResource("RectangleShape2D_hrm3h")
 wait_time = 3.0
 one_shot = true
 
+[connection signal="pressed" from="Player/Pause_Menu/Continue" to="Player/Pause_Menu" method="_on_continue_pressed"]
+[connection signal="pressed" from="Player/Pause_Menu/Main_Menu" to="Player/Pause_Menu" method="_on_quit_pressed"]
 [connection signal="timeout" from="Portals/Portal_Cooldown" to="Portals/Portal_1" method="_on_portal_cooldown_timeout"]

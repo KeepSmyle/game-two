@@ -34,7 +34,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("peng_pause"):
+		$Player/Pause_Menu.show()
+		get_tree().paused = true
 
 func _load_character(sprite, script):
 	_add_node_to_player(sprite)

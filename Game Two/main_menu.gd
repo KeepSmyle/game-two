@@ -4,6 +4,7 @@ var character = "Bounce_Guy"
 var portal_ready = true
 var label
 
+#TODO: buttons don't work after entering the arena and exiting with pause menu
 func _ready():
 	label = find_child("Selected Character")
 	_print_current_char()
