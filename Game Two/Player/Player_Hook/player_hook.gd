@@ -4,12 +4,13 @@ var Hook  = load("res://Player/Player_Hook/Hook.tscn")
 var hookScene
 var hook
 var rope
-var hookIsFired
+var hookIsFired = false
 var hook_starting_position
 var swing_speed = 500.0
 
+#is not used, since script is loaded in later
 func _ready():
-	hookIsFired = false
+	pass
 
 func _physics_process(delta):
 	_standart_movement(delta)
