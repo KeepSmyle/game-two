@@ -3,6 +3,7 @@ extends "res://Player/Player.gd"
 var MAX_SPEED = 800
 var ACCELERATION = 15
 
+#is not used, since script is loaded in later
 func _ready():
 	pass
 

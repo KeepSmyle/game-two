@@ -3,11 +3,11 @@ extends "res://Player/Player.gd"
 var hopWait = false
 var hopTimerStart = false
 
+#is not used, since script is loaded in later
 func _ready():
-	JUMP_VELOCITY = -600
+	pass
 
 func _physics_process(delta):
-	
 	if is_on_floor():
 		velocity.x = 0
 	
@@ -46,7 +46,6 @@ func _hop_movement(delta):
 
 #different jump?
 func _jump(): 
-	# Handle jump.
 	if Input.is_action_just_pressed("peng_jump") && is_on_floor():
 		velocity.y = JUMP_VELOCITY
 

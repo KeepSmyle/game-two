@@ -27,6 +27,7 @@ func _ready():
 		"Hop_Guy":
 			_load_character(hop_sprite, hop_script)
 			_add_node_to_player(hop_cooldown)
+			hop_cooldown.connect("timeout", player._on_hop_cooldown_timeout)
 		"Slide_Guy":
 			_load_character(slide_sprite, slide_script)
 	
@@ -38,6 +39,7 @@ func _process(delta):
 func _load_character(sprite, script):
 	_add_node_to_player(sprite)
 	player.set_script(script)
+	hop_script._ready()
 	
 func _add_node_to_player(scene):
 	player.add_child(scene)

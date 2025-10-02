@@ -35,5 +35,3 @@ shape = SubResource("CapsuleShape2D_nh2kt")
 [node name="HopCooldown" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
-
-[connection signal="timeout" from="HopCooldown" to="." method="_on_hop_cooldown_timeout"]
