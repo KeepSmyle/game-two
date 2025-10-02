@@ -24,7 +24,6 @@ func _physics_process(delta):
 		hopTimerStart = true
 		$HopCooldown.start()
 
-#TODO: fix hopcooldown
 func _hop_movement(delta):
 	direction = Input.get_axis("peng_moveLeft", "peng_moveRight")
 	

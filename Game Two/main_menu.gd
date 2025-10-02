@@ -1,6 +1,6 @@
 extends Node2D
 
-var character = "Hop_Guy"
+var character = "Bounce_Guy"
 var portal_ready = true
 var label
 
