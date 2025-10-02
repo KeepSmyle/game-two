@@ -18,7 +18,7 @@ var hook_hand = load("res://Player/Player_Hook/hook_hand.tscn").instantiate()
 func _ready():
 	player = find_child("Player")
 	
-	match Main.character:
+	match Global.character:
 		"Hook_Guy":
 			_load_character(hook_sprite, hook_script)
 			_add_node_to_player(hook_hand)

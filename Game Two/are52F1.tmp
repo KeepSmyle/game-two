@@ -92,23 +92,22 @@ shape = SubResource("CapsuleShape2D_3gptn")
 [node name="Pause_Menu" type="Node2D" parent="Player"]
 process_mode = 2
 visible = false
-position = Vector2(-400, -224)
-scale = Vector2(0.7, 0.7)
+position = Vector2(-576, -264)
 script = ExtResource("3_ci3qm")
 
 [node name="Continue" type="Button" parent="Player/Pause_Menu"]
-offset_left = 457.143
-offset_top = 160.0
-offset_right = 681.143
-offset_bottom = 216.0
+offset_left = 464.0
+offset_top = 152.0
+offset_right = 688.0
+offset_bottom = 208.0
 text = "Continue"
 metadata/_edit_use_anchors_ = true
 
 [node name="Main_Menu" type="Button" parent="Player/Pause_Menu"]
-offset_left = 457.143
-offset_top = 388.571
-offset_right = 681.143
-offset_bottom = 452.571
+offset_left = 464.0
+offset_top = 376.0
+offset_right = 688.0
+offset_bottom = 440.0
 text = "Main Menu"
 metadata/_edit_use_anchors_ = true
 

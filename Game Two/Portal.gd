@@ -14,12 +14,12 @@ func _process(delta):
 
 func _on_Player_body_entered(body):
 	if body.is_in_group("Player"):
-		if Main.portal_ready:
+		if Global.portal_ready:
 			var portal_route = _get_portal_route()
 			body.global_transform[2].x += portal_route[0]
 			body.global_transform[2].y += portal_route[1]
 		
-			Main.portal_ready = false
+			Global.portal_ready = false
 			get_parent().find_child("Portal_Cooldown").start()
 
 func _get_portal_route():
@@ -34,4 +34,4 @@ func _get_portal_route():
 	return Vector2(end_portal.global_transform[2].x - start_portal.global_transform[2].x, end_portal.global_transform[2].y - start_portal.global_transform[2].y)
 
 func _on_portal_cooldown_timeout():
-	Main.portal_ready = true
+	Global.portal_ready = true

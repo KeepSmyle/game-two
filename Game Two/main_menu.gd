@@ -1,14 +1,10 @@
 extends Node2D
 
-var character = "Bounce_Guy"
-var portal_ready = true
 var label
 
-#TODO: buttons don't work after entering the arena and exiting with pause menu
 func _ready():
 	label = find_child("Selected Character")
 	_print_current_char()
-
 
 func _on_quit_pressed():
 	get_tree().quit()
@@ -23,5 +19,4 @@ func _on_character_selection_pressed():
 
 #not working
 func _print_current_char():
-	if label:
-		label.set_text(character.erase(character.length() - 4, 4))
+	label.set_text(Global.character.erase(Global.character.length() - 4, 4))
