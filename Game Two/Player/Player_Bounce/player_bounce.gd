@@ -6,7 +6,7 @@ const bounce_multi = 1.5
 func _ready():
 	pass
 
-
+#TODO: fix
 func _physics_process(delta):
 	_standart_movement(delta)
 	

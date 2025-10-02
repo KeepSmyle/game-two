@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://arena.gd" id="1_g8oae"]
 [ext_resource type="Script" path="res://Portal.gd" id="2_gj0b1"]
-[ext_resource type="Script" path="res://Player/Player.gd" id="2_ydpjl"]
+[ext_resource type="PackedScene" uid="uid://cxbqb6coacdyn" path="res://Player/Player.tscn" id="2_o1ix8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gptn"]
 radius = 16.0
-height = 32.0
+height = 48.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flesm"]
 size = Vector2(1154, 66)
@@ -26,15 +26,16 @@ size = Vector2(24, 40)
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_g8oae")
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
-position = Vector2(576, 264)
-script = ExtResource("2_ydpjl")
+[node name="Player" parent="." instance=ExtResource("2_o1ix8")]
 
-[node name="Camera2D" type="Camera2D" parent="Player" groups=["Player"]]
+[node name="Camera2D2" type="Camera2D" parent="Player"]
 zoom = Vector2(1.5, 1.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=["Player"]]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CapsuleShape2D_3gptn")
+
+[node name="Player1" type="Node2D" parent="." groups=["Player"]]
+position = Vector2(0, 8)
 
 [node name="Floor" type="StaticBody2D" parent="." groups=["Terrain"]]
 

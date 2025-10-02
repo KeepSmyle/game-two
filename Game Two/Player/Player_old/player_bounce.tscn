@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://cvdgydkbs8gel"]
 
-[ext_resource type="Script" path="res://Player/player_bounce.gd" id="1_ajtll"]
-[ext_resource type="Texture2D" uid="uid://cf7dfriccwgqw" path="res://images/Frog.jpg" id="2_06dla"]
+[ext_resource type="Script" path="res://Player/Player_Bounce/player_bounce.gd" id="1_8875x"]
+[ext_resource type="Texture2D" uid="uid://cf7dfriccwgqw" path="res://images/Frog.jpg" id="2_jpjrh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8yvwy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_06dla")
+"texture": ExtResource("2_jpjrh")
 }],
 "loop": true,
 "name": &"default",
@@ -19,7 +19,7 @@ radius = 16.0
 height = 32.0
 
 [node name="player_bounce" type="CharacterBody2D"]
-script = ExtResource("1_ajtll")
+script = ExtResource("1_8875x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.66446, 1.66893e-06)

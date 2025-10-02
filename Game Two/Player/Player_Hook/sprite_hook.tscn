@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ql8jxhgv4ei8"]
+
+[ext_resource type="Texture2D" uid="uid://cb78j78ut0s6n" path="res://images/Spider.jpg" id="1_f1jdb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p2gia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f1jdb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+position = Vector2(0, -1.83555)
+scale = Vector2(0.0995851, 0.109757)
+sprite_frames = SubResource("SpriteFrames_p2gia")

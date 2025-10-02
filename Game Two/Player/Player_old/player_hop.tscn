@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://cs2p6uiqqdkpw"]
 
-[ext_resource type="Texture2D" uid="uid://cf7dfriccwgqw" path="res://images/Frog.jpg" id="1_ge72v"]
-[ext_resource type="Script" path="res://Player/player_hop.gd" id="1_m0d1k"]
+[ext_resource type="Script" path="res://Player/Player_Hop/player_hop.gd" id="1_5hlql"]
+[ext_resource type="Texture2D" uid="uid://cf7dfriccwgqw" path="res://images/Frog.jpg" id="2_gs48f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fogkj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_ge72v")
+"texture": ExtResource("2_gs48f")
 }],
 "loop": true,
 "name": &"default",
@@ -19,7 +19,7 @@ radius = 16.0
 height = 32.0
 
 [node name="player_hop" type="CharacterBody2D"]
-script = ExtResource("1_m0d1k")
+script = ExtResource("1_5hlql")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.66446, 1.66893e-06)

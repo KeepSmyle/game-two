@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ba6vqt1s00r4w"]
 
 [ext_resource type="Texture2D" uid="uid://b0joceicc8ap3" path="res://images/Hook.png" id="1_ogauq"]
-[ext_resource type="Script" path="res://Player/Hook.gd" id="1_rmgcm"]
+[ext_resource type="Script" path="res://Player/Player_Hook/Hook.gd" id="1_rmgcm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pgbtx"]
 

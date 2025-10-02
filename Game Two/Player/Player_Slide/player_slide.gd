@@ -15,6 +15,7 @@ func _physics_process(delta):
 		$AnimatedSprite2D.rotation = 0
 		_standart_movement(delta)
 
+#TODO: mirror sprite while sliding
 func _slide_movement(delta):
 	direction = Input.get_axis("peng_moveLeft", "peng_moveRight")
 	

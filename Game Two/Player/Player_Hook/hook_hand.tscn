@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://66d7ae1dhs1n"]
+
+[node name="Hand" type="Marker2D"]
+position = Vector2(8, 8)

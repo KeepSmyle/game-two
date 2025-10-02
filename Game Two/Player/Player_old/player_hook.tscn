@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://b2w7aslcvg0dq"]
 
-[ext_resource type="Script" path="res://Player/player_hook.gd" id="1_rkhjm"]
-[ext_resource type="Texture2D" uid="uid://cb78j78ut0s6n" path="res://images/Spider.jpg" id="2_xl57v"]
+[ext_resource type="Script" path="res://Player/Player_Hook/player_hook.gd" id="1_e0ndo"]
+[ext_resource type="Texture2D" uid="uid://cb78j78ut0s6n" path="res://images/Spider.jpg" id="2_jdnkw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ynl43"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_xl57v")
+"texture": ExtResource("2_jdnkw")
 }],
 "loop": true,
 "name": &"default",
@@ -19,7 +19,7 @@ radius = 16.0
 height = 32.0
 
 [node name="Player_hook" type="CharacterBody2D"]
-script = ExtResource("1_rkhjm")
+script = ExtResource("1_e0ndo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1.83555)
@@ -33,4 +33,4 @@ zoom = Vector2(1.5, 1.5)
 shape = SubResource("CapsuleShape2D_s5xfv")
 
 [node name="Hand" type="Marker2D" parent="."]
-position = Vector2(-10, 15)
+position = Vector2(8, 8)

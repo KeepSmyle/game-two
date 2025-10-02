@@ -1,6 +1,6 @@
 extends "res://Player/Player.gd"
 
-var Hook  = load("res://Player/Hook.tscn")
+var Hook  = load("res://Player/Player_Hook/Hook.tscn")
 var hookScene
 var hook
 var rope
