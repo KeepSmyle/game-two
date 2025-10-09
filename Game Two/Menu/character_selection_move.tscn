@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://de7pm34rvh5cf"]
+
+[ext_resource type="Script" path="res://Menu/character_selection_move.gd" id="1_oas7r"]
+
+[node name="Character_Selection_Move" type="Node2D"]
+script = ExtResource("1_oas7r")
+
+[node name="Hook_Guy" type="Button" parent="."]
+offset_left = 320.0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 128.0
+toggle_mode = true
+text = "Hook"
+
+[node name="Bounce_Guy" type="Button" parent="."]
+offset_left = 448.0
+offset_top = 64.0
+offset_right = 512.0
+offset_bottom = 128.0
+toggle_mode = true
+text = "Bounce"
+
+[node name="Hop_Guy" type="Button" parent="."]
+offset_left = 575.0
+offset_top = 64.0
+offset_right = 641.0
+offset_bottom = 128.0
+toggle_mode = true
+text = "Hop"
+
+[node name="Slide_Guy" type="Button" parent="."]
+offset_left = 703.0
+offset_top = 64.0
+offset_right = 769.0
+offset_bottom = 128.0
+toggle_mode = true
+text = "Slide"
+
+[node name="Back" type="Button" parent="."]
+offset_left = 320.0
+offset_top = 544.0
+offset_right = 896.0
+offset_bottom = 576.0
+text = "Back"
+
+[connection signal="pressed" from="Hook_Guy" to="." method="_on_hook_guy_pressed"]
+[connection signal="pressed" from="Bounce_Guy" to="." method="_on_bounce_guy_pressed"]
+[connection signal="pressed" from="Hop_Guy" to="." method="_on_hop_guy_pressed"]
+[connection signal="pressed" from="Slide_Guy" to="." method="_on_slide_guy_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

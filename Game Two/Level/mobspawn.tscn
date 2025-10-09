@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://dogwal80dn167"]
+
+[ext_resource type="Script" path="res://Level/mobspawn.gd" id="1_apfve"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_rvbhr"]
+[ext_resource type="Script" path="res://Menu/Pause_Menu.gd" id="2_lxjjb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fds1"]
+size = Vector2(1954, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axuoa"]
+size = Vector2(74, 637)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqjwf"]
+size = Vector2(74, 635)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_df543"]
+radius = 16.0
+height = 32.0
+
+[node name="Mobspawn" type="Node2D"]
+script = ExtResource("1_apfve")
+
+[node name="Walls_Floors" type="Node2D" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="Walls_Floors" groups=["Terrain"]]
+position = Vector2(0, 568)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_Floors/Floor" groups=["Terrain"]]
+position = Vector2(975, 39)
+shape = SubResource("RectangleShape2D_3fds1")
+
+[node name="Panel" type="Panel" parent="Walls_Floors/Floor"]
+offset_top = 8.0
+offset_right = 1952.0
+offset_bottom = 72.0
+
+[node name="Wall1" type="StaticBody2D" parent="Walls_Floors" groups=["Terrain"]]
+
+[node name="Panel" type="Panel" parent="Walls_Floors/Wall1"]
+offset_right = 72.0
+offset_bottom = 640.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_Floors/Wall1" groups=["Terrain"]]
+position = Vector2(32, 320)
+shape = SubResource("RectangleShape2D_axuoa")
+
+[node name="Wall2" type="StaticBody2D" parent="Walls_Floors" groups=["Terrain"]]
+position = Vector2(1880, 0)
+
+[node name="Panel" type="Panel" parent="Walls_Floors/Wall2"]
+offset_right = 72.0
+offset_bottom = 640.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_Floors/Wall2" groups=["Terrain"]]
+position = Vector2(35, 322.5)
+shape = SubResource("RectangleShape2D_qqjwf")
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
+position = Vector2(208, 552)
+script = ExtResource("1_rvbhr")
+
+[node name="Camera2D" type="Camera2D" parent="Player" groups=["Player"]]
+zoom = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=["Player"]]
+shape = SubResource("CapsuleShape2D_df543")
+
+[node name="Pause_Menu" type="Node2D" parent="Player"]
+process_mode = 2
+visible = false
+position = Vector2(-400, -224)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("2_lxjjb")
+
+[node name="Continue" type="Button" parent="Player/Pause_Menu"]
+offset_left = 457.143
+offset_top = 160.0
+offset_right = 681.143
+offset_bottom = 216.0
+text = "Continue"
+metadata/_edit_use_anchors_ = true
+
+[node name="Main_Menu" type="Button" parent="Player/Pause_Menu"]
+offset_left = 457.143
+offset_top = 388.571
+offset_right = 681.143
+offset_bottom = 452.571
+text = "Main Menu"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Player/Pause_Menu/Continue" to="Player/Pause_Menu" method="_on_continue_pressed"]
+[connection signal="pressed" from="Player/Pause_Menu/Main_Menu" to="Player/Pause_Menu" method="_on_quit_pressed"]

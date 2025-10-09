@@ -21,4 +21,4 @@ func _on_continue_pressed():
 
 func _on_quit_pressed():
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	get_tree().change_scene_to_file("res://Menu/main_menu.tscn")

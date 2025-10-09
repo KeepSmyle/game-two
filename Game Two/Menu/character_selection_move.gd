@@ -4,7 +4,7 @@ func _ready():
 	pass
 
 func _on_back_pressed():
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	get_tree().change_scene_to_file("res://Menu/main_menu.tscn")
 
 
 func _on_hook_guy_pressed():

@@ -16,7 +16,7 @@ var hook_hand = load("res://Player/Player_Hook/hook_hand.tscn").instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player = find_child("Player")
+	player = $Player
 	
 	match Global.character:
 		"Hook_Guy":

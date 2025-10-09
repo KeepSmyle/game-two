@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://o0sl7vyesp7s"]
+
+[ext_resource type="Script" path="res://Menu/main_menu.gd" id="1_tvhh2"]
+
+[node name="Main_menu" type="Node2D"]
+script = ExtResource("1_tvhh2")
+
+[node name="Start" type="Button" parent="."]
+offset_left = 408.0
+offset_top = 47.0
+offset_right = 632.0
+offset_bottom = 103.0
+text = "Start"
+
+[node name="Character Selection Move" type="Button" parent="."]
+offset_left = 408.0
+offset_top = 151.0
+offset_right = 632.0
+offset_bottom = 207.0
+text = "Character Selection Move"
+
+[node name="Selected Character" type="Label" parent="."]
+offset_left = 672.0
+offset_top = 152.0
+offset_right = 744.0
+offset_bottom = 208.0
+
+[node name="Character Selection Fight" type="Button" parent="."]
+offset_left = 408.0
+offset_top = 239.0
+offset_right = 632.0
+offset_bottom = 295.0
+text = "Character Selection Fight"
+
+[node name="Level Selection" type="Button" parent="."]
+offset_left = 408.0
+offset_top = 336.0
+offset_right = 632.0
+offset_bottom = 392.0
+text = "Level Selection"
+
+[node name="Selected Level" type="Label" parent="."]
+offset_left = 664.0
+offset_top = 336.0
+offset_right = 736.0
+offset_bottom = 392.0
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 408.0
+offset_top = 496.0
+offset_right = 632.0
+offset_bottom = 560.0
+text = "Quit"
+
+[node name="Settings" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Tutorial" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Load" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Character Selection Move" to="." method="_on_character_selection_move_pressed"]
+[connection signal="pressed" from="Character Selection Fight" to="." method="_on_character_selection_fight_pressed"]
+[connection signal="pressed" from="Level Selection" to="." method="_on_level_selection_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
