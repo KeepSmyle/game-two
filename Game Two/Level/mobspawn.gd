@@ -1,6 +1,9 @@
 extends Node2D
 
 var player
+var rng = RandomNumberGenerator.new()
+
+var ghost = load("res://ghost.tscn")
 
 var hook_sprite = load("res://Player/Player_Hook/sprite_hook.tscn").instantiate()
 var hop_sprite = load("res://Player/Player_Hop/sprite_hop.tscn").instantiate()
@@ -16,6 +19,7 @@ var hook_hand = load("res://Player/Player_Hook/hook_hand.tscn").instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_spawn()
 	player = $Player
 	
 	match Global.character:
@@ -37,12 +41,24 @@ func _process(delta):
 	if Input.is_action_just_pressed("peng_pause"):
 		$Player/Pause_Menu.show()
 		get_tree().paused = true
+	
+	
 
 func _load_character(sprite, script):
 	_add_node_to_player(sprite)
 	player.set_script(script)
-	hop_script._ready()
 	
 func _add_node_to_player(scene):
 	player.add_child(scene)
 	scene.set_owner(scene.get_parent())
+
+
+func _on_mobspawn_timer_timeout():
+	_spawn()
+	
+func _spawn():
+	var new_ghost = ghost.instantiate()
+	add_child(new_ghost)
+	new_ghost.set_owner(new_ghost.get_parent())
+	new_ghost.position.x += rng.randf_range(500, 1000)
+	new_ghost.position.y += 600

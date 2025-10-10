@@ -2,6 +2,7 @@ extends Node2D
 
 var player
 
+#TODO: maybe load the individual player scene instead
 var hook_sprite = load("res://Player/Player_Hook/sprite_hook.tscn").instantiate()
 var hop_sprite = load("res://Player/Player_Hop/sprite_hop.tscn").instantiate()
 var slide_sprite = load("res://Player/Player_Slide/sprite_slide.tscn").instantiate()

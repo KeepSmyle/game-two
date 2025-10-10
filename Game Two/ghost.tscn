@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dolptuq0kt17x"]
+
+[ext_resource type="Script" path="res://ghost.gd" id="1_4x1gw"]
+[ext_resource type="Texture2D" uid="uid://b71lry3xa32gy" path="res://images/Ghost.jpg" id="1_a4sok"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ak1vv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a4sok")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1byfs"]
+radius = 8.0
+height = 32.0
+
+[node name="Ghost" type="CharacterBody2D"]
+script = ExtResource("1_4x1gw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.136519, 0.111272)
+sprite_frames = SubResource("SpriteFrames_ak1vv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1byfs")

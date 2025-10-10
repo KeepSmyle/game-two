@@ -90,5 +90,10 @@ offset_bottom = 452.571
 text = "Main Menu"
 metadata/_edit_use_anchors_ = true
 
+[node name="Mobspawn_Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="pressed" from="Player/Pause_Menu/Continue" to="Player/Pause_Menu" method="_on_continue_pressed"]
 [connection signal="pressed" from="Player/Pause_Menu/Main_Menu" to="Player/Pause_Menu" method="_on_quit_pressed"]
+[connection signal="timeout" from="Mobspawn_Timer" to="." method="_on_mobspawn_timer_timeout"]
