@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dolptuq0kt17x"]
+[gd_scene load_steps=6 format=3 uid="uid://dolptuq0kt17x"]
 
 [ext_resource type="Script" path="res://ghost.gd" id="1_4x1gw"]
 [ext_resource type="Texture2D" uid="uid://b71lry3xa32gy" path="res://images/Ghost.jpg" id="1_a4sok"]
@@ -18,6 +18,9 @@ animations = [{
 radius = 8.0
 height = 32.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_f1nrq"]
+radius = 240.0
+
 [node name="Ghost" type="CharacterBody2D"]
 script = ExtResource("1_4x1gw")
 
@@ -27,3 +30,12 @@ sprite_frames = SubResource("SpriteFrames_ak1vv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1byfs")
+
+[node name="Player_Detection" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Detection"]
+shape = SubResource("CircleShape2D_f1nrq")
+
+[connection signal="body_entered" from="Player_Detection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="Player_Detection" to="." method="_on_player_detection_body_exited"]

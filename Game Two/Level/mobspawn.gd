@@ -1,6 +1,7 @@
 extends Node2D
 
 var player
+var mob_node
 var rng = RandomNumberGenerator.new()
 
 var ghost = load("res://ghost.tscn")
@@ -19,6 +20,7 @@ var hook_hand = load("res://Player/Player_Hook/hook_hand.tscn").instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	mob_node = find_child("Mobs")
 	_spawn()
 	player = $Player
 	
@@ -58,7 +60,7 @@ func _on_mobspawn_timer_timeout():
 	
 func _spawn():
 	var new_ghost = ghost.instantiate()
-	add_child(new_ghost)
+	mob_node.add_child(new_ghost)
 	new_ghost.set_owner(new_ghost.get_parent())
 	new_ghost.position.x += rng.randf_range(500, 1000)
 	new_ghost.position.y += 600
