@@ -13,7 +13,7 @@ func _process(delta):
 	#Gravity for frog
 	velocity.y += gravity * delta
 	if chase:
-		player = get_node("../../Player")
+		player = get_node("../../Player/player_fight")
 		var direction = (player.position - self.position).normalized()
 		if direction.x > 0:
 			get_node("AnimatedSprite2D").flip_h = true

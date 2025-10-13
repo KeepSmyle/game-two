@@ -23,15 +23,6 @@ func _physics_process(delta):
 	var direction = Input.get_axis("peng_moveLeft", "peng_moveRight")
 	#two axes (such as joystick or WASD movement)
 	var aim = Input.get_vector("peng_moveLeft", "peng_moveRight", "peng_lookUp", "peng_lookDown")
-	
-	if is_on_floor() && direction:
-		if direction == -1:
-			get_node("AnimatedSprite2D").flip_h = true
-		elif direction == 1:
-			get_node("AnimatedSprite2D").flip_h = false
-		velocity.x = direction * SPEED
-	elif is_on_floor():
-		velocity.x = move_toward(velocity.x, 0, SPEED/4)
 		
 	if Input.is_action_just_pressed("peng_action"):
 		shoot(aim)

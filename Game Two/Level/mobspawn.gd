@@ -22,20 +22,7 @@ var hook_hand = load("res://Player/Player_Hook/hook_hand.tscn").instantiate()
 func _ready():
 	mob_node = find_child("Mobs")
 	_spawn()
-	player = $Player
-	
-	match Global.character:
-		"Hook_Guy":
-			_load_character(hook_sprite, hook_script)
-			_add_node_to_player(hook_hand)
-		"Bounce_Guy":
-			_load_character(hop_sprite, bounce_script)
-		"Hop_Guy":
-			_load_character(hop_sprite, hop_script)
-			_add_node_to_player(hop_cooldown)
-			hop_cooldown.connect("timeout", player._on_hop_cooldown_timeout)
-		"Slide_Guy":
-			_load_character(slide_sprite, slide_script)
+	player = $Player/player_fight
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -60,6 +47,7 @@ func _on_mobspawn_timer_timeout():
 	
 func _spawn():
 	var new_ghost = ghost.instantiate()
+	new_ghost.add_to_group("Mobs")
 	mob_node.add_child(new_ghost)
 	new_ghost.set_owner(new_ghost.get_parent())
 	new_ghost.position.x += rng.randf_range(500, 1000)
