@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb78j78ut0s6n"
-path="res://.godot/imported/Spider.jpg-cc106bdbc4a8f14d79d4b9541fa128e3.ctex"
+uid="uid://b0joceicc8ap3"
+path="res://.godot/imported/Hook.png-dba4df60582105f57e878bb5fc0ffc84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Spider.jpg"
-dest_files=["res://.godot/imported/Spider.jpg-cc106bdbc4a8f14d79d4b9541fa128e3.ctex"]
+source_file="res://images/Characters/Hook.png"
+dest_files=["res://.godot/imported/Hook.png-dba4df60582105f57e878bb5fc0ffc84.ctex"]
 
 [params]
 

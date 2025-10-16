@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf7dfriccwgqw"
-path="res://.godot/imported/Frog.jpg-2dff9458311098e7ffdb750742f39660.ctex"
+uid="uid://b71lry3xa32gy"
+path="res://.godot/imported/Ghost.jpg-6a21abbcd498256e90cbc9ceb3903da8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Frog.jpg"
-dest_files=["res://.godot/imported/Frog.jpg-2dff9458311098e7ffdb750742f39660.ctex"]
+source_file="res://images/Characters/Ghost.jpg"
+dest_files=["res://.godot/imported/Ghost.jpg-6a21abbcd498256e90cbc9ceb3903da8.ctex"]
 
 [params]
 

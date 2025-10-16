@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjphh56no11a0"]
+
+[ext_resource type="Texture2D" uid="uid://u3l366vgq5o4" path="res://images/Weapon/dirt.png" id="1_4rmva"]
+[ext_resource type="Script" path="res://Player/Player_Fight/shockwave.gd" id="1_tuulw"]
+
+[sub_resource type="Animation" id="Animation_rbyre"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spike:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_smcxc"]
+resource_name = "new_animation"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spike:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 4), Vector2(0, 0), Vector2(0, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7tbxp"]
+_data = {
+"RESET": SubResource("Animation_rbyre"),
+"wave": SubResource("Animation_smcxc")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1658"]
+size = Vector2(10, 5)
+
+[node name="Shockwave" type="Node2D"]
+show_behind_parent = true
+scale = Vector2(4, 4)
+script = ExtResource("1_tuulw")
+
+[node name="Spike" type="Node2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spike"]
+position = Vector2(0, -2)
+texture = ExtResource("1_4rmva")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Spike"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_7tbxp")
+}
+
+[node name="Area2D" type="Area2D" parent="Spike"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike/Area2D"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_c1658")
+
+[connection signal="animation_finished" from="Spike/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

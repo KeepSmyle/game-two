@@ -4,19 +4,7 @@ var player
 var mob_node
 var rng = RandomNumberGenerator.new()
 
-var ghost = load("res://ghost.tscn")
-
-var hook_sprite = load("res://Player/Player_Hook/sprite_hook.tscn").instantiate()
-var hop_sprite = load("res://Player/Player_Hop/sprite_hop.tscn").instantiate()
-var slide_sprite = load("res://Player/Player_Slide/sprite_slide.tscn").instantiate()
-
-var hook_script = load("res://Player/Player_Hook/player_hook.gd")
-var bounce_script = load("res://Player/Player_Bounce/player_bounce.gd")
-var hop_script = load("res://Player/Player_Hop/player_hop.gd")
-var slide_script = load("res://Player/Player_Slide/player_slide.gd")
-
-var hop_cooldown = load("res://Player/Player_Hop/hop_cooldown.tscn").instantiate()
-var hook_hand = load("res://Player/Player_Hook/hook_hand.tscn").instantiate()
+var ghost_scene = load("res://ghost.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,7 +16,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("peng_pause"):
-		$Player/Pause_Menu.show()
+		$Player/Player/Pause_Menu.show()
 		get_tree().paused = true
 	
 	
@@ -46,7 +34,7 @@ func _on_mobspawn_timer_timeout():
 	_spawn()
 	
 func _spawn():
-	var new_ghost = ghost.instantiate()
+	var new_ghost = ghost_scene.instantiate()
 	new_ghost.add_to_group("Mobs")
 	mob_node.add_child(new_ghost)
 	new_ghost.set_owner(new_ghost.get_parent())

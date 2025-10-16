@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsx3g3key5kt8"
-path="res://.godot/imported/Warhammer.jpg-e35759555271e99c9a7bbd65de2e1461.ctex"
+uid="uid://bkrf2t7joowek"
+path="res://.godot/imported/Dirt1_unbroken.png-6e87af48141bac84f41b8298e9233360.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Warhammer.jpg"
-dest_files=["res://.godot/imported/Warhammer.jpg-e35759555271e99c9a7bbd65de2e1461.ctex"]
+source_file="res://images/Terrain/Dirt/Dirt1_unbroken.png"
+dest_files=["res://.godot/imported/Dirt1_unbroken.png-6e87af48141bac84f41b8298e9233360.ctex"]
 
 [params]
 

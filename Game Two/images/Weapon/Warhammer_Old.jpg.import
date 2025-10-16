@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0joceicc8ap3"
-path="res://.godot/imported/Hook.png-45b13dc56f5c4238d15b99a06c81e357.ctex"
+uid="uid://b2kx7vayi3uli"
+path="res://.godot/imported/Warhammer_Old.jpg-67ef89bfb64445f9811debf22d7d078b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Hook.png"
-dest_files=["res://.godot/imported/Hook.png-45b13dc56f5c4238d15b99a06c81e357.ctex"]
+source_file="res://images/Weapon/Warhammer_Old.jpg"
+dest_files=["res://.godot/imported/Warhammer_Old.jpg-67ef89bfb64445f9811debf22d7d078b.ctex"]
 
 [params]
 

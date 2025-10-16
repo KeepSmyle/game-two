@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dolptuq0kt17x"]
 
 [ext_resource type="Script" path="res://ghost.gd" id="1_4x1gw"]
-[ext_resource type="Texture2D" uid="uid://b71lry3xa32gy" path="res://images/Ghost.jpg" id="1_a4sok"]
+[ext_resource type="Texture2D" uid="uid://b71lry3xa32gy" path="res://images/Characters/Ghost.jpg" id="1_a4sok"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ak1vv"]
 animations = [{
