@@ -39,6 +39,10 @@ func _on_hitbox_body_entered(body):
 	
 	if body.is_in_group("Destructable") && is_attacking:
 		body._destruct()
+	
+	#TODO: kick in the right direction
+	if body.is_in_group("Falling") && is_attacking:
+		body.linear_velocity.x = 150
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "hammer_swing_right" || anim_name == "hammer_swing_left":

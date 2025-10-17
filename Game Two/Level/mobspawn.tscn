@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://dogwal80dn167"]
+[gd_scene load_steps=13 format=3 uid="uid://dogwal80dn167"]
 
 [ext_resource type="Script" path="res://Level/mobspawn.gd" id="1_apfve"]
 [ext_resource type="PackedScene" uid="uid://bgat1fxj32g5o" path="res://Player/Player_Fight/player_fight.tscn" id="2_jeq5x"]
+[ext_resource type="Texture2D" uid="uid://5fkd3ehevdgg" path="res://images/Terrain/Dirt/Dirt1_allmostbroken.png" id="2_kj02l"]
 [ext_resource type="Script" path="res://Menu/Pause_Menu.gd" id="3_f5r88"]
 [ext_resource type="Texture2D" uid="uid://bkrf2t7joowek" path="res://images/Terrain/Dirt/Dirt1_unbroken.png" id="3_uku85"]
 [ext_resource type="Script" path="res://Level/plattform.gd" id="3_usnca"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bxphc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3fds1"]
 size = Vector2(1954, 66)
@@ -22,6 +25,18 @@ size = Vector2(18, 18)
 
 [node name="Mobspawn" type="Node2D"]
 script = ExtResource("1_apfve")
+
+[node name="Falling_Objects" type="Node2D" parent="." groups=["Falling"]]
+
+[node name="Rock1" type="RigidBody2D" parent="Falling_Objects" groups=["Falling"]]
+position = Vector2(568, 408)
+can_sleep = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling_Objects/Rock1" groups=["Falling"]]
+shape = SubResource("CircleShape2D_bxphc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Falling_Objects/Rock1" groups=["Falling"]]
+texture = ExtResource("2_kj02l")
 
 [node name="Walls_Floors" type="Node2D" parent="."]
 
@@ -102,7 +117,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Plattforms" type="Node2D" parent="."]
 
 [node name="plattform1" type="StaticBody2D" parent="Plattforms" groups=["Destructable"]]
-position = Vector2(384, 416)
+position = Vector2(480, 424)
 script = ExtResource("3_usnca")
 
 [node name="plattform1_1" type="CollisionShape2D" parent="Plattforms/plattform1" groups=["Destructable"]]
@@ -113,7 +128,7 @@ shape = SubResource("RectangleShape2D_gbryd")
 texture = ExtResource("3_uku85")
 
 [node name="plattform2" type="StaticBody2D" parent="Plattforms" groups=["Destructable"]]
-position = Vector2(408, 416)
+position = Vector2(504, 424)
 script = ExtResource("3_usnca")
 
 [node name="plattform2_1" type="CollisionShape2D" parent="Plattforms/plattform2" groups=["Destructable"]]
@@ -124,7 +139,7 @@ shape = SubResource("RectangleShape2D_gbryd")
 texture = ExtResource("3_uku85")
 
 [node name="plattform3" type="StaticBody2D" parent="Plattforms" groups=["Destructable"]]
-position = Vector2(432, 416)
+position = Vector2(528, 424)
 script = ExtResource("3_usnca")
 
 [node name="plattform3_1" type="CollisionShape2D" parent="Plattforms/plattform3" groups=["Destructable"]]
@@ -135,7 +150,7 @@ shape = SubResource("RectangleShape2D_gbryd")
 texture = ExtResource("3_uku85")
 
 [node name="plattform4" type="StaticBody2D" parent="Plattforms" groups=["Destructable"]]
-position = Vector2(384, 416)
+position = Vector2(480, 424)
 script = ExtResource("3_usnca")
 
 [node name="plattform4_1" type="CollisionShape2D" parent="Plattforms/plattform4" groups=["Destructable"]]
@@ -146,7 +161,7 @@ shape = SubResource("RectangleShape2D_gbryd")
 texture = ExtResource("3_uku85")
 
 [node name="plattform4" type="StaticBody2D" parent="." groups=["Destructable"]]
-position = Vector2(456, 416)
+position = Vector2(552, 424)
 script = ExtResource("3_usnca")
 
 [node name="plattform4_1" type="CollisionShape2D" parent="plattform4" groups=["Destructable"]]

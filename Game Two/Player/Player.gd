@@ -4,7 +4,7 @@ var direction
 var aim
 var collision
 
-var SPEED = 300.0
+var SPEED = 200.0
 var JUMP_VELOCITY = -600.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -26,14 +26,14 @@ func _standart_movement(delta):
 	#two axes (such as joystick or WASD movement)
 	aim = Input.get_vector("peng_moveLeft", "peng_moveRight", "peng_lookUp", "peng_lookDown")
 	
-	if is_on_floor() && direction:
+	if direction:
 		if direction == -1:
 			get_node("AnimatedSprite2D").flip_h = true
 		elif direction == 1:
 			get_node("AnimatedSprite2D").flip_h = false
 		velocity.x = direction * SPEED
 	elif is_on_floor():
-		velocity.x = move_toward(velocity.x, 0, SPEED/4)
+		velocity.x = 0#move_toward(velocity.x, 0, SPEED/4)
 		
 	# adds gravity 
 	if !is_on_floor():

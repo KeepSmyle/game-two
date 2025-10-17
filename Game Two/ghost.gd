@@ -33,3 +33,8 @@ func _on_player_detection_body_entered(body):
 func _on_player_detection_body_exited(body):
 	if body.name == "Player":
 		chase = false
+
+
+func _on_damage_detection_body_entered(body):
+	if body.is_in_group("Falling") && (body.linear_velocity.y != 0 || body.linear_velocity.x != 0):
+		queue_free()
