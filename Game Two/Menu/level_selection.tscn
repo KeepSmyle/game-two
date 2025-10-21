@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Menu/level_selection.gd" id="1_nrgkq"]
 
-[node name="Leve_Selection" type="Node2D"]
+[node name="Level_Selection" type="Node2D"]
 script = ExtResource("1_nrgkq")
 
 [node name="Arena" type="Button" parent="."]
@@ -28,6 +28,15 @@ offset_right = 896.0
 offset_bottom = 576.0
 text = "Back"
 
+[node name="Loop" type="Button" parent="."]
+offset_left = 576.0
+offset_top = 64.0
+offset_right = 642.0
+offset_bottom = 128.0
+toggle_mode = true
+text = "Loop"
+
 [connection signal="pressed" from="Arena" to="." method="_on_arena_pressed"]
 [connection signal="pressed" from="Mobspawn" to="." method="_on_mobspawn_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Loop" to="." method="_on_mobspawn_2_pressed"]

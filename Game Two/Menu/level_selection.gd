@@ -22,3 +22,10 @@ func _on_mobspawn_pressed():
 func _untoggle_all():
 	find_child("Arena").button_pressed = false
 	find_child("Mobspawn").button_pressed = false
+	find_child("Loop").button_pressed = false
+
+
+func _on_mobspawn_2_pressed():
+	_untoggle_all()
+	Global.level = "Loop"
+	find_child("Loop").button_pressed = true

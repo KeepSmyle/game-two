@@ -17,12 +17,12 @@ size = Vector2(74, 635)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qh638"]
 size = Vector2(456, 66)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrm3h"]
+size = Vector2(24, 40)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gptn"]
 radius = 16.0
 height = 32.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrm3h"]
-size = Vector2(24, 40)
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_g8oae")
@@ -76,38 +76,6 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(232, 32)
 shape = SubResource("RectangleShape2D_qh638")
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
-position = Vector2(576, 264)
-script = ExtResource("2_ydpjl")
-
-[node name="Camera2D" type="Camera2D" parent="Player" groups=["Player"]]
-zoom = Vector2(1.5, 1.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=["Player"]]
-shape = SubResource("CapsuleShape2D_3gptn")
-
-[node name="Pause_Menu" type="Node2D" parent="Player"]
-process_mode = 2
-position = Vector2(-6.10352e-05, -56)
-scale = Vector2(0.7, 0.7)
-script = ExtResource("3_ci3qm")
-
-[node name="Continue" type="Button" parent="Player/Pause_Menu"]
-offset_left = -114.286
-offset_top = -91.4286
-offset_right = 109.714
-offset_bottom = -35.4286
-text = "Continue"
-metadata/_edit_use_anchors_ = true
-
-[node name="Main_Menu" type="Button" parent="Player/Pause_Menu"]
-offset_left = -114.286
-offset_top = 137.142
-offset_right = 109.714
-offset_bottom = 201.142
-text = "Main Menu"
-metadata/_edit_use_anchors_ = true
-
 [node name="Portals" type="Node2D" parent="."]
 position = Vector2(680, 232)
 
@@ -140,6 +108,41 @@ shape = SubResource("RectangleShape2D_hrm3h")
 wait_time = 3.0
 one_shot = true
 
-[connection signal="pressed" from="Player/Pause_Menu/Continue" to="Player/Pause_Menu" method="_on_continue_pressed"]
-[connection signal="pressed" from="Player/Pause_Menu/Main_Menu" to="Player/Pause_Menu" method="_on_quit_pressed"]
+[node name="Player" type="Node2D" parent="."]
+
+[node name="player" type="CharacterBody2D" parent="Player" groups=["Player"]]
+position = Vector2(576, 264)
+script = ExtResource("2_ydpjl")
+
+[node name="Camera2D" type="Camera2D" parent="Player/player" groups=["Player"]]
+zoom = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/player" groups=["Player"]]
+shape = SubResource("CapsuleShape2D_3gptn")
+
+[node name="Pause_Menu" type="Node2D" parent="Player/player"]
+process_mode = 2
+visible = false
+position = Vector2(-6.10352e-05, -56)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("3_ci3qm")
+
+[node name="Continue" type="Button" parent="Player/player/Pause_Menu"]
+offset_left = -114.286
+offset_top = -91.4286
+offset_right = 109.714
+offset_bottom = -35.4286
+text = "Continue"
+metadata/_edit_use_anchors_ = true
+
+[node name="Main_Menu" type="Button" parent="Player/player/Pause_Menu"]
+offset_left = -114.286
+offset_top = 137.142
+offset_right = 109.714
+offset_bottom = 201.142
+text = "Main Menu"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="timeout" from="Portals/Portal_Cooldown" to="Portals/Portal_1" method="_on_portal_cooldown_timeout"]
+[connection signal="pressed" from="Player/player/Pause_Menu/Continue" to="Player/player/Pause_Menu" method="_on_continue_pressed"]
+[connection signal="pressed" from="Player/player/Pause_Menu/Main_Menu" to="Player/player/Pause_Menu" method="_on_quit_pressed"]

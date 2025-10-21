@@ -17,7 +17,7 @@ var hook_hand = load("res://Player/Player_Hook/hook_hand.tscn").instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player = $Player
+	player = $Player/player
 	
 	match Global.character:
 		"Hook_Guy":
@@ -36,7 +36,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("peng_pause"):
-		$Player/Pause_Menu.show()
+		$Player/player/Pause_Menu.show()
 		get_tree().paused = true
 
 func _load_character(sprite, script):

@@ -15,7 +15,7 @@ func _on_start_pressed():
 	match Global.level:
 		"Arena":
 			get_tree().change_scene_to_file("res://Level/arena.tscn")
-		"Mobs":
+		"Mobspawn":
 			get_tree().change_scene_to_file("res://Level/mobspawn.tscn")
 		"Loop":
 			get_tree().change_scene_to_file("res://Level/loop.tscn")

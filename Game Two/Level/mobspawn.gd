@@ -10,13 +10,13 @@ var ghost_scene = load("res://ghost.tscn")
 func _ready():
 	mob_node = find_child("Mobs")
 	_spawn()
-	player = $Player/player_fight
+	player = $Player/player
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("peng_pause"):
-		$Player/Player/Pause_Menu.show()
+		$Player/player/Pause_Menu.show()
 		get_tree().paused = true
 	
 	

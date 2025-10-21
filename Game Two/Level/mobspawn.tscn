@@ -29,7 +29,7 @@ script = ExtResource("1_apfve")
 [node name="Falling_Objects" type="Node2D" parent="." groups=["Falling"]]
 
 [node name="Rock1" type="RigidBody2D" parent="Falling_Objects" groups=["Falling"]]
-position = Vector2(728, 448)
+position = Vector2(720, 448)
 can_sleep = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Falling_Objects/Rock1" groups=["Falling"]]
@@ -84,21 +84,21 @@ autostart = true
 
 [node name="Player" type="Node2D" parent="."]
 
-[node name="player_fight" parent="Player" instance=ExtResource("2_jeq5x")]
+[node name="player" parent="Player" instance=ExtResource("2_jeq5x")]
 position = Vector2(248, 552)
 
-[node name="Camera2D" type="Camera2D" parent="Player/player_fight" groups=["Player"]]
+[node name="Camera2D" type="Camera2D" parent="Player/player" groups=["Player"]]
 position = Vector2(0, -8)
 zoom = Vector2(1.5, 1.5)
 
-[node name="Pause_Menu" type="Node2D" parent="Player/player_fight"]
+[node name="Pause_Menu" type="Node2D" parent="Player/player"]
 process_mode = 2
 visible = false
 position = Vector2(8, -72)
 scale = Vector2(0.7, 0.7)
 script = ExtResource("3_f5r88")
 
-[node name="Continue" type="Button" parent="Player/player_fight/Pause_Menu"]
+[node name="Continue" type="Button" parent="Player/player/Pause_Menu"]
 offset_left = -114.286
 offset_top = -102.857
 offset_right = 109.714
@@ -106,7 +106,7 @@ offset_bottom = -46.8571
 text = "Continue"
 metadata/_edit_use_anchors_ = true
 
-[node name="Main_Menu" type="Button" parent="Player/player_fight/Pause_Menu"]
+[node name="Main_Menu" type="Button" parent="Player/player/Pause_Menu"]
 offset_left = -114.286
 offset_top = 125.714
 offset_right = 109.714
@@ -163,5 +163,5 @@ shape = SubResource("RectangleShape2D_udq1a")
 texture = ExtResource("3_uku85")
 
 [connection signal="timeout" from="Mobspawn_Timer" to="." method="_on_mobspawn_timer_timeout"]
-[connection signal="pressed" from="Player/player_fight/Pause_Menu/Continue" to="Player/player_fight/Pause_Menu" method="_on_continue_pressed"]
-[connection signal="pressed" from="Player/player_fight/Pause_Menu/Main_Menu" to="Player/player_fight/Pause_Menu" method="_on_quit_pressed"]
+[connection signal="pressed" from="Player/player/Pause_Menu/Continue" to="Player/player/Pause_Menu" method="_on_continue_pressed"]
+[connection signal="pressed" from="Player/player/Pause_Menu/Main_Menu" to="Player/player/Pause_Menu" method="_on_quit_pressed"]
