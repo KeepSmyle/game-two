@@ -20,7 +20,7 @@ size = Vector2(74, 637)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqjwf"]
 size = Vector2(74, 635)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbryd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udq1a"]
 size = Vector2(18, 18)
 
 [node name="Mobspawn" type="Node2D"]
@@ -29,7 +29,7 @@ script = ExtResource("1_apfve")
 [node name="Falling_Objects" type="Node2D" parent="." groups=["Falling"]]
 
 [node name="Rock1" type="RigidBody2D" parent="Falling_Objects" groups=["Falling"]]
-position = Vector2(568, 408)
+position = Vector2(728, 448)
 can_sleep = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Falling_Objects/Rock1" groups=["Falling"]]
@@ -116,59 +116,50 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Plattforms" type="Node2D" parent="."]
 
-[node name="plattform1" type="StaticBody2D" parent="Plattforms" groups=["Destructable"]]
-position = Vector2(480, 424)
+[node name="Plattform1" type="Node2D" parent="Plattforms"]
+
+[node name="plattform1_1" type="StaticBody2D" parent="Plattforms/Plattform1" groups=["Destructable"]]
+position = Vector2(635, 464)
 script = ExtResource("3_usnca")
 
-[node name="plattform1_1" type="CollisionShape2D" parent="Plattforms/plattform1" groups=["Destructable"]]
+[node name="collision1_1" type="CollisionShape2D" parent="Plattforms/Plattform1/plattform1_1" groups=["Destructable"]]
 position = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_gbryd")
+shape = SubResource("RectangleShape2D_udq1a")
 
-[node name="Sprite2D" type="Sprite2D" parent="Plattforms/plattform1/plattform1_1" groups=["Destructable"]]
+[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform1/plattform1_1/collision1_1" groups=["Destructable"]]
 texture = ExtResource("3_uku85")
 
-[node name="plattform2" type="StaticBody2D" parent="Plattforms" groups=["Destructable"]]
-position = Vector2(504, 424)
+[node name="plattform1_2" type="StaticBody2D" parent="Plattforms/Plattform1" groups=["Destructable"]]
+position = Vector2(659, 464)
 script = ExtResource("3_usnca")
 
-[node name="plattform2_1" type="CollisionShape2D" parent="Plattforms/plattform2" groups=["Destructable"]]
+[node name="collision1_2" type="CollisionShape2D" parent="Plattforms/Plattform1/plattform1_2" groups=["Destructable"]]
 position = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_gbryd")
+shape = SubResource("RectangleShape2D_udq1a")
 
-[node name="Sprite2D" type="Sprite2D" parent="Plattforms/plattform2/plattform2_1" groups=["Destructable"]]
+[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform1/plattform1_2/collision1_2" groups=["Destructable"]]
 texture = ExtResource("3_uku85")
 
-[node name="plattform3" type="StaticBody2D" parent="Plattforms" groups=["Destructable"]]
-position = Vector2(528, 424)
+[node name="plattform1_3" type="StaticBody2D" parent="Plattforms/Plattform1" groups=["Destructable"]]
+position = Vector2(683, 464)
 script = ExtResource("3_usnca")
 
-[node name="plattform3_1" type="CollisionShape2D" parent="Plattforms/plattform3" groups=["Destructable"]]
+[node name="collision1_3" type="CollisionShape2D" parent="Plattforms/Plattform1/plattform1_3" groups=["Destructable"]]
 position = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_gbryd")
+shape = SubResource("RectangleShape2D_udq1a")
 
-[node name="Sprite2D" type="Sprite2D" parent="Plattforms/plattform3/plattform3_1" groups=["Destructable"]]
+[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform1/plattform1_3/collision1_3" groups=["Destructable"]]
 texture = ExtResource("3_uku85")
 
-[node name="plattform4" type="StaticBody2D" parent="Plattforms" groups=["Destructable"]]
-position = Vector2(480, 424)
+[node name="plattform1_4" type="StaticBody2D" parent="Plattforms/Plattform1" groups=["Destructable"]]
+position = Vector2(707, 464)
 script = ExtResource("3_usnca")
 
-[node name="plattform4_1" type="CollisionShape2D" parent="Plattforms/plattform4" groups=["Destructable"]]
+[node name="collision1_4" type="CollisionShape2D" parent="Plattforms/Plattform1/plattform1_4" groups=["Destructable"]]
 position = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_gbryd")
+shape = SubResource("RectangleShape2D_udq1a")
 
-[node name="Sprite2D" type="Sprite2D" parent="Plattforms/plattform4/plattform4_1" groups=["Destructable"]]
-texture = ExtResource("3_uku85")
-
-[node name="plattform4" type="StaticBody2D" parent="." groups=["Destructable"]]
-position = Vector2(552, 424)
-script = ExtResource("3_usnca")
-
-[node name="plattform4_1" type="CollisionShape2D" parent="plattform4" groups=["Destructable"]]
-position = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_gbryd")
-
-[node name="Sprite2D" type="Sprite2D" parent="plattform4/plattform4_1" groups=["Destructable"]]
+[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform1/plattform1_4/collision1_4" groups=["Destructable"]]
 texture = ExtResource("3_uku85")
 
 [connection signal="timeout" from="Mobspawn_Timer" to="." method="_on_mobspawn_timer_timeout"]

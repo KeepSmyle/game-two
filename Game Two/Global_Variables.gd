@@ -1,7 +1,7 @@
 extends Node2D
 
 var character = "Bounce_Guy"
-var level = "Mobs"
+var level = "Loop"
 var portal_ready = true
 
 # Called when the node enters the scene tree for the first time.

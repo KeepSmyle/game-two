@@ -4,7 +4,7 @@ var direction
 var aim
 var collision
 
-var SPEED = 200.0
+var SPEED = 400.0
 var JUMP_VELOCITY = -600.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.

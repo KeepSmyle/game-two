@@ -1,0 +1,196 @@
+[gd_scene load_steps=11 format=3 uid="uid://caoi42tw7g6do"]
+
+[ext_resource type="Script" path="res://Level/loop.gd" id="1_l2alr"]
+[ext_resource type="Texture2D" uid="uid://5fkd3ehevdgg" path="res://images/Terrain/Dirt/Dirt1_allmostbroken.png" id="2_na7pb"]
+[ext_resource type="PackedScene" uid="uid://bgat1fxj32g5o" path="res://Player/Player_Fight/player_fight.tscn" id="3_40jgi"]
+[ext_resource type="Script" path="res://Menu/Pause_Menu.gd" id="4_rj7ur"]
+[ext_resource type="Script" path="res://Level/plattform.gd" id="5_d4fjd"]
+[ext_resource type="Texture2D" uid="uid://bkrf2t7joowek" path="res://images/Terrain/Dirt/Dirt1_unbroken.png" id="6_6mypq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fds1"]
+size = Vector2(1954, 66)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82kjp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbryd"]
+size = Vector2(18, 18)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bxphc"]
+
+[node name="Loop" type="Node2D"]
+script = ExtResource("1_l2alr")
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="player_fight" parent="Player" instance=ExtResource("3_40jgi")]
+position = Vector2(240, 544)
+
+[node name="Camera2D" type="Camera2D" parent="Player/player_fight" groups=["Player"]]
+position = Vector2(0, -8)
+zoom = Vector2(1.5, 1.5)
+
+[node name="Pause_Menu" type="Node2D" parent="Player/player_fight"]
+process_mode = 2
+visible = false
+position = Vector2(8, -72)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("4_rj7ur")
+
+[node name="Continue" type="Button" parent="Player/player_fight/Pause_Menu"]
+offset_left = -114.286
+offset_top = -102.857
+offset_right = 109.714
+offset_bottom = -46.8571
+text = "Continue"
+metadata/_edit_use_anchors_ = true
+
+[node name="Main_Menu" type="Button" parent="Player/player_fight/Pause_Menu"]
+offset_left = -114.286
+offset_top = 125.714
+offset_right = 109.714
+offset_bottom = 189.714
+text = "Main Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="Walls_Floors" type="Node2D" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="Walls_Floors" groups=["Terrain"]]
+position = Vector2(0, 568)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_Floors/Floor" groups=["Terrain"]]
+position = Vector2(975, 39)
+shape = SubResource("RectangleShape2D_3fds1")
+
+[node name="Panel" type="Panel" parent="Walls_Floors/Floor"]
+offset_top = 8.0
+offset_right = 1952.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_82kjp")
+
+[node name="Plattforms" type="Node2D" parent="."]
+
+[node name="Plattform1" type="Node2D" parent="Plattforms"]
+
+[node name="plattform1_1" type="StaticBody2D" parent="Plattforms/Plattform1" groups=["Destructable"]]
+position = Vector2(635, 464)
+script = ExtResource("5_d4fjd")
+
+[node name="collision1_1" type="CollisionShape2D" parent="Plattforms/Plattform1/plattform1_1" groups=["Destructable"]]
+position = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_gbryd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform1/plattform1_1/collision1_1" groups=["Destructable"]]
+texture = ExtResource("6_6mypq")
+
+[node name="plattform1_2" type="StaticBody2D" parent="Plattforms/Plattform1" groups=["Destructable"]]
+position = Vector2(659, 464)
+script = ExtResource("5_d4fjd")
+
+[node name="collision1_2" type="CollisionShape2D" parent="Plattforms/Plattform1/plattform1_2" groups=["Destructable"]]
+position = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_gbryd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform1/plattform1_2/collision1_2" groups=["Destructable"]]
+texture = ExtResource("6_6mypq")
+
+[node name="plattform1_3" type="StaticBody2D" parent="Plattforms/Plattform1" groups=["Destructable"]]
+position = Vector2(683, 464)
+script = ExtResource("5_d4fjd")
+
+[node name="collision1_3" type="CollisionShape2D" parent="Plattforms/Plattform1/plattform1_3" groups=["Destructable"]]
+position = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_gbryd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform1/plattform1_3/collision1_3" groups=["Destructable"]]
+texture = ExtResource("6_6mypq")
+
+[node name="plattform1_4" type="StaticBody2D" parent="Plattforms/Plattform1" groups=["Destructable"]]
+position = Vector2(707, 464)
+script = ExtResource("5_d4fjd")
+
+[node name="collision1_4" type="CollisionShape2D" parent="Plattforms/Plattform1/plattform1_4" groups=["Destructable"]]
+position = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_gbryd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform1/plattform1_4/collision1_4" groups=["Destructable"]]
+texture = ExtResource("6_6mypq")
+
+[node name="Plattform2" type="Node2D" parent="Plattforms"]
+
+[node name="plattform2_1" type="StaticBody2D" parent="Plattforms/Plattform2" groups=["Destructable"]]
+position = Vector2(1635, 464)
+script = ExtResource("5_d4fjd")
+
+[node name="collision2_1" type="CollisionShape2D" parent="Plattforms/Plattform2/plattform2_1" groups=["Destructable"]]
+position = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_gbryd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform2/plattform2_1/collision2_1" groups=["Destructable"]]
+texture = ExtResource("6_6mypq")
+
+[node name="plattform2_2" type="StaticBody2D" parent="Plattforms/Plattform2" groups=["Destructable"]]
+position = Vector2(1659, 464)
+script = ExtResource("5_d4fjd")
+
+[node name="collision2_2" type="CollisionShape2D" parent="Plattforms/Plattform2/plattform2_2" groups=["Destructable"]]
+position = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_gbryd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform2/plattform2_2/collision2_2" groups=["Destructable"]]
+texture = ExtResource("6_6mypq")
+
+[node name="plattform2_3" type="StaticBody2D" parent="Plattforms/Plattform2" groups=["Destructable"]]
+position = Vector2(1683, 464)
+script = ExtResource("5_d4fjd")
+
+[node name="collision2_3" type="CollisionShape2D" parent="Plattforms/Plattform2/plattform2_3" groups=["Destructable"]]
+position = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_gbryd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform2/plattform2_3/collision2_3" groups=["Destructable"]]
+texture = ExtResource("6_6mypq")
+
+[node name="plattform2_4" type="StaticBody2D" parent="Plattforms/Plattform2" groups=["Destructable"]]
+position = Vector2(1707, 464)
+script = ExtResource("5_d4fjd")
+
+[node name="collision2_4" type="CollisionShape2D" parent="Plattforms/Plattform2/plattform2_4" groups=["Destructable"]]
+position = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_gbryd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform2/plattform2_4/collision2_4" groups=["Destructable"]]
+texture = ExtResource("6_6mypq")
+
+[node name="Falling_Objects" type="Node2D" parent="." groups=["Falling"]]
+
+[node name="Rock1" type="RigidBody2D" parent="Falling_Objects" groups=["Falling"]]
+position = Vector2(723, 448)
+can_sleep = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling_Objects/Rock1" groups=["Falling"]]
+shape = SubResource("CircleShape2D_bxphc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Falling_Objects/Rock1" groups=["Falling"]]
+texture = ExtResource("2_na7pb")
+
+[node name="Rock2" type="RigidBody2D" parent="Falling_Objects" groups=["Falling"]]
+position = Vector2(1723, 448)
+can_sleep = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling_Objects/Rock2" groups=["Falling"]]
+shape = SubResource("CircleShape2D_bxphc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Falling_Objects/Rock2" groups=["Falling"]]
+texture = ExtResource("2_na7pb")
+
+[node name="Mobspawn_Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Mobs" type="Node2D" parent="." groups=["Mobs"]]
+
+[node name="Generated" type="Node2D" parent="."]
+
+[connection signal="pressed" from="Player/player_fight/Pause_Menu/Continue" to="Player/player_fight/Pause_Menu" method="_on_continue_pressed"]
+[connection signal="pressed" from="Player/player_fight/Pause_Menu/Main_Menu" to="Player/player_fight/Pause_Menu" method="_on_quit_pressed"]
+[connection signal="timeout" from="Mobspawn_Timer" to="." method="_on_mobspawn_timer_timeout"]
