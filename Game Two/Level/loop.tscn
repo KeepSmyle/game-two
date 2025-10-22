@@ -1,21 +1,25 @@
-[gd_scene load_steps=11 format=3 uid="uid://caoi42tw7g6do"]
+[gd_scene load_steps=13 format=3 uid="uid://caoi42tw7g6do"]
 
 [ext_resource type="Script" path="res://Level/loop.gd" id="1_l2alr"]
 [ext_resource type="Texture2D" uid="uid://5fkd3ehevdgg" path="res://images/Terrain/Dirt/Dirt1_allmostbroken.png" id="2_na7pb"]
 [ext_resource type="PackedScene" uid="uid://bgat1fxj32g5o" path="res://Player/Player_Fight/player_fight.tscn" id="3_40jgi"]
+[ext_resource type="Texture2D" uid="uid://cf7dfriccwgqw" path="res://images/Characters/Frog.jpg" id="4_4x2h3"]
 [ext_resource type="Script" path="res://Menu/Pause_Menu.gd" id="4_rj7ur"]
 [ext_resource type="Script" path="res://Level/plattform.gd" id="5_d4fjd"]
 [ext_resource type="Texture2D" uid="uid://bkrf2t7joowek" path="res://images/Terrain/Dirt/Dirt1_unbroken.png" id="6_6mypq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fds1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6x0hx"]
 size = Vector2(1954, 66)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82kjp"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i834i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpmsw"]
+size = Vector2(232, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bxphc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbryd"]
 size = Vector2(18, 18)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_bxphc"]
 
 [node name="Loop" type="Node2D"]
 script = ExtResource("1_l2alr")
@@ -27,18 +31,19 @@ position = Vector2(0, 568)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_Floors/Floor" groups=["Terrain"]]
 position = Vector2(975, 39)
-shape = SubResource("RectangleShape2D_3fds1")
+shape = SubResource("RectangleShape2D_6x0hx")
 
 [node name="Panel" type="Panel" parent="Walls_Floors/Floor"]
 offset_top = 8.0
 offset_right = 1952.0
 offset_bottom = 72.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_82kjp")
+theme_override_styles/panel = SubResource("StyleBoxFlat_i834i")
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" type="Node2D" parent="."]
 
 [node name="player" parent="Player" instance=ExtResource("3_40jgi")]
-position = Vector2(240, 544)
+position = Vector2(200, 536)
 
 [node name="Camera2D" type="Camera2D" parent="Player/player" groups=["Player"]]
 position = Vector2(0, -8)
@@ -69,119 +74,41 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Plattforms" type="Node2D" parent="."]
 
-[node name="Plattform1" type="Node2D" parent="Plattforms"]
+[node name="Plattform1" type="StaticBody2D" parent="Plattforms"]
+position = Vector2(400, 400)
 
-[node name="plattform1_1" type="StaticBody2D" parent="Plattforms/Plattform1" groups=["Destructable"]]
-position = Vector2(635, 464)
-script = ExtResource("5_d4fjd")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plattforms/Plattform1"]
+position = Vector2(116, 20)
+shape = SubResource("RectangleShape2D_qpmsw")
 
-[node name="collision1_1" type="CollisionShape2D" parent="Plattforms/Plattform1/plattform1_1" groups=["Destructable"]]
-position = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_gbryd")
+[node name="Panel" type="Panel" parent="Plattforms/Plattform1"]
+offset_right = 232.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform1/plattform1_1/collision1_1" groups=["Destructable"]]
-texture = ExtResource("6_6mypq")
+[node name="Plattform_Sprite_Start" type="Sprite2D" parent="Plattforms/Plattform1"]
+position = Vector2(208, -8)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_4x2h3")
 
-[node name="plattform1_2" type="StaticBody2D" parent="Plattforms/Plattform1" groups=["Destructable"]]
-position = Vector2(659, 464)
-script = ExtResource("5_d4fjd")
+[node name="Plattform2" type="StaticBody2D" parent="Plattforms"]
+position = Vector2(1500, 400)
 
-[node name="collision1_2" type="CollisionShape2D" parent="Plattforms/Plattform1/plattform1_2" groups=["Destructable"]]
-position = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_gbryd")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plattforms/Plattform2"]
+position = Vector2(116, 20)
+shape = SubResource("RectangleShape2D_qpmsw")
 
-[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform1/plattform1_2/collision1_2" groups=["Destructable"]]
-texture = ExtResource("6_6mypq")
+[node name="Panel" type="Panel" parent="Plattforms/Plattform2"]
+offset_right = 232.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
-[node name="plattform1_3" type="StaticBody2D" parent="Plattforms/Plattform1" groups=["Destructable"]]
-position = Vector2(683, 464)
-script = ExtResource("5_d4fjd")
-
-[node name="collision1_3" type="CollisionShape2D" parent="Plattforms/Plattform1/plattform1_3" groups=["Destructable"]]
-position = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_gbryd")
-
-[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform1/plattform1_3/collision1_3" groups=["Destructable"]]
-texture = ExtResource("6_6mypq")
-
-[node name="plattform1_4" type="StaticBody2D" parent="Plattforms/Plattform1" groups=["Destructable"]]
-position = Vector2(707, 464)
-script = ExtResource("5_d4fjd")
-
-[node name="collision1_4" type="CollisionShape2D" parent="Plattforms/Plattform1/plattform1_4" groups=["Destructable"]]
-position = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_gbryd")
-
-[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform1/plattform1_4/collision1_4" groups=["Destructable"]]
-texture = ExtResource("6_6mypq")
-
-[node name="Plattform2" type="Node2D" parent="Plattforms"]
-
-[node name="plattform2_1" type="StaticBody2D" parent="Plattforms/Plattform2" groups=["Destructable"]]
-position = Vector2(1635, 464)
-script = ExtResource("5_d4fjd")
-
-[node name="collision2_1" type="CollisionShape2D" parent="Plattforms/Plattform2/plattform2_1" groups=["Destructable"]]
-position = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_gbryd")
-
-[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform2/plattform2_1/collision2_1" groups=["Destructable"]]
-texture = ExtResource("6_6mypq")
-
-[node name="plattform2_2" type="StaticBody2D" parent="Plattforms/Plattform2" groups=["Destructable"]]
-position = Vector2(1659, 464)
-script = ExtResource("5_d4fjd")
-
-[node name="collision2_2" type="CollisionShape2D" parent="Plattforms/Plattform2/plattform2_2" groups=["Destructable"]]
-position = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_gbryd")
-
-[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform2/plattform2_2/collision2_2" groups=["Destructable"]]
-texture = ExtResource("6_6mypq")
-
-[node name="plattform2_3" type="StaticBody2D" parent="Plattforms/Plattform2" groups=["Destructable"]]
-position = Vector2(1683, 464)
-script = ExtResource("5_d4fjd")
-
-[node name="collision2_3" type="CollisionShape2D" parent="Plattforms/Plattform2/plattform2_3" groups=["Destructable"]]
-position = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_gbryd")
-
-[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform2/plattform2_3/collision2_3" groups=["Destructable"]]
-texture = ExtResource("6_6mypq")
-
-[node name="plattform2_4" type="StaticBody2D" parent="Plattforms/Plattform2" groups=["Destructable"]]
-position = Vector2(1707, 464)
-script = ExtResource("5_d4fjd")
-
-[node name="collision2_4" type="CollisionShape2D" parent="Plattforms/Plattform2/plattform2_4" groups=["Destructable"]]
-position = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_gbryd")
-
-[node name="Sprite2D" type="Sprite2D" parent="Plattforms/Plattform2/plattform2_4/collision2_4" groups=["Destructable"]]
-texture = ExtResource("6_6mypq")
+[node name="Plattform_Sprite_End" type="Sprite2D" parent="Plattforms/Plattform2"]
+position = Vector2(208, -8)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_4x2h3")
 
 [node name="Falling_Objects" type="Node2D" parent="." groups=["Falling"]]
-
-[node name="Rock1" type="RigidBody2D" parent="Falling_Objects" groups=["Falling"]]
-position = Vector2(723, 448)
-can_sleep = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling_Objects/Rock1" groups=["Falling"]]
-shape = SubResource("CircleShape2D_bxphc")
-
-[node name="Sprite2D" type="Sprite2D" parent="Falling_Objects/Rock1" groups=["Falling"]]
-texture = ExtResource("2_na7pb")
-
-[node name="Rock2" type="RigidBody2D" parent="Falling_Objects" groups=["Falling"]]
-position = Vector2(1723, 448)
-can_sleep = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling_Objects/Rock2" groups=["Falling"]]
-shape = SubResource("CircleShape2D_bxphc")
-
-[node name="Sprite2D" type="Sprite2D" parent="Falling_Objects/Rock2" groups=["Falling"]]
-texture = ExtResource("2_na7pb")
 
 [node name="Mobspawn_Timer" type="Timer" parent="."]
 wait_time = 5.0
@@ -190,6 +117,63 @@ autostart = true
 [node name="Mobs" type="Node2D" parent="." groups=["Mobs"]]
 
 [node name="Generated" type="Node2D" parent="."]
+
+[node name="Rock1" type="RigidBody2D" parent="Generated" groups=["Falling"]]
+position = Vector2(944, 448)
+can_sleep = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Generated/Rock1" groups=["Falling"]]
+shape = SubResource("CircleShape2D_bxphc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Generated/Rock1" groups=["Falling"]]
+texture = ExtResource("2_na7pb")
+
+[node name="Plattform1" type="Node2D" parent="Generated"]
+position = Vector2(856, 440)
+
+[node name="plattform1_1" type="StaticBody2D" parent="Generated/Plattform1" groups=["Destructable"]]
+position = Vector2(24, 24)
+script = ExtResource("5_d4fjd")
+
+[node name="collision1_1" type="CollisionShape2D" parent="Generated/Plattform1/plattform1_1" groups=["Destructable"]]
+position = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_gbryd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Generated/Plattform1/plattform1_1/collision1_1" groups=["Destructable"]]
+texture = ExtResource("6_6mypq")
+
+[node name="plattform1_2" type="StaticBody2D" parent="Generated/Plattform1" groups=["Destructable"]]
+position = Vector2(48, 24)
+script = ExtResource("5_d4fjd")
+
+[node name="collision1_2" type="CollisionShape2D" parent="Generated/Plattform1/plattform1_2" groups=["Destructable"]]
+position = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_gbryd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Generated/Plattform1/plattform1_2/collision1_2" groups=["Destructable"]]
+texture = ExtResource("6_6mypq")
+
+[node name="plattform1_3" type="StaticBody2D" parent="Generated/Plattform1" groups=["Destructable"]]
+position = Vector2(72, 24)
+script = ExtResource("5_d4fjd")
+
+[node name="collision1_3" type="CollisionShape2D" parent="Generated/Plattform1/plattform1_3" groups=["Destructable"]]
+position = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_gbryd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Generated/Plattform1/plattform1_3/collision1_3" groups=["Destructable"]]
+texture = ExtResource("6_6mypq")
+
+[node name="plattform1_4" type="StaticBody2D" parent="Generated/Plattform1" groups=["Destructable"]]
+position = Vector2(96, 24)
+script = ExtResource("5_d4fjd")
+
+[node name="collision1_4" type="CollisionShape2D" parent="Generated/Plattform1/plattform1_4" groups=["Destructable"]]
+position = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_gbryd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Generated/Plattform1/plattform1_4/collision1_4" groups=["Destructable"]]
+texture = ExtResource("6_6mypq")
 
 [connection signal="pressed" from="Player/player/Pause_Menu/Continue" to="Player/player/Pause_Menu" method="_on_continue_pressed"]
 [connection signal="pressed" from="Player/player/Pause_Menu/Main_Menu" to="Player/player/Pause_Menu" method="_on_quit_pressed"]

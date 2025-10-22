@@ -12,9 +12,6 @@ func _ready():
 
 func _physics_process(delta):
 	_standart_movement(delta)
-	
-	if global_position.x > 1500:
-		global_position.x -= 1000
 		
 	if direction:
 		if direction == -1:

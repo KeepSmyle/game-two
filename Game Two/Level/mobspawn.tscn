@@ -52,6 +52,7 @@ offset_top = 8.0
 offset_right = 1952.0
 offset_bottom = 72.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_82kjp")
+metadata/_edit_use_anchors_ = true
 
 [node name="Wall1" type="StaticBody2D" parent="Walls_Floors" groups=["Terrain"]]
 

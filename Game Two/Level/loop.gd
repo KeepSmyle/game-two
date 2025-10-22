@@ -6,12 +6,21 @@ var rng = RandomNumberGenerator.new()
 
 var ghost_scene = load("res://ghost.tscn")
 
+var sprite_number
+var sprites = [load("res://images/Characters/Frog.jpg"),
+				load("res://images/Characters/Ghost.jpg"),
+				load("res://images/Characters/Peng.jpg"),
+				load("res://images/Characters/Spider.jpg")]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sprite_number = rng.randf_range(1, 5)
+	$Plattforms/Plattform2/Plattform_Sprite_End.set_texture(sprites[sprite_number])
+	
 	mob_node = find_child("Mobs")
 	_spawn()
 	player = $Player/player
-	
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -19,6 +28,8 @@ func _process(delta):
 		$Player/player/Pause_Menu.show()
 		get_tree().paused = true
 	
+	if player.global_position.x > 1500:
+		_reset()
 	
 
 func _load_character(sprite, script):
@@ -29,6 +40,12 @@ func _add_node_to_player(scene):
 	player.add_child(scene)
 	scene.set_owner(scene.get_parent())
 
+func _reset():
+	$Plattforms/Plattform1/Plattform_Sprite_Start.set_texture(sprites[sprite_number])
+	rng.randf_range(1, 5)
+	player.global_position.x -= 1100
+	sprite_number = rng.randf_range(0, 3)
+	$Plattforms/Plattform2/Plattform_Sprite_End.set_texture(sprites[sprite_number])
 
 func _on_mobspawn_timer_timeout():
 	pass#_spawn()
