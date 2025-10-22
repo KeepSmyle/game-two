@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://caoi42tw7g6do"]
+[gd_scene load_steps=12 format=3 uid="uid://caoi42tw7g6do"]
 
 [ext_resource type="Script" path="res://Level/loop.gd" id="1_l2alr"]
-[ext_resource type="Texture2D" uid="uid://5fkd3ehevdgg" path="res://images/Terrain/Dirt/Dirt1_allmostbroken.png" id="2_na7pb"]
 [ext_resource type="PackedScene" uid="uid://bgat1fxj32g5o" path="res://Player/Player_Fight/player_fight.tscn" id="3_40jgi"]
 [ext_resource type="Texture2D" uid="uid://cf7dfriccwgqw" path="res://images/Characters/Frog.jpg" id="4_4x2h3"]
 [ext_resource type="Script" path="res://Menu/Pause_Menu.gd" id="4_rj7ur"]
-[ext_resource type="Script" path="res://Level/plattform.gd" id="5_d4fjd"]
+[ext_resource type="PackedScene" uid="uid://4yidbaaeiapl" path="res://Level/Objects/rock.tscn" id="5_ao8rj"]
+[ext_resource type="Script" path="res://Level/Objects/plattform.gd" id="5_d4fjd"]
 [ext_resource type="Texture2D" uid="uid://bkrf2t7joowek" path="res://images/Terrain/Dirt/Dirt1_unbroken.png" id="6_6mypq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6x0hx"]
@@ -15,8 +15,6 @@ size = Vector2(1954, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpmsw"]
 size = Vector2(232, 40)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_bxphc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbryd"]
 size = Vector2(18, 18)
@@ -117,22 +115,16 @@ autostart = true
 [node name="Mobs" type="Node2D" parent="." groups=["Mobs"]]
 
 [node name="Generated" type="Node2D" parent="."]
+position = Vector2(784, 408)
 
-[node name="Rock1" type="RigidBody2D" parent="Generated" groups=["Falling"]]
-position = Vector2(944, 448)
-can_sleep = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Generated/Rock1" groups=["Falling"]]
-shape = SubResource("CircleShape2D_bxphc")
-
-[node name="Sprite2D" type="Sprite2D" parent="Generated/Rock1" groups=["Falling"]]
-texture = ExtResource("2_na7pb")
+[node name="Rock" parent="Generated" instance=ExtResource("5_ao8rj")]
+position = Vector2(232, 32)
 
 [node name="Plattform1" type="Node2D" parent="Generated"]
-position = Vector2(856, 440)
+position = Vector2(136, 40)
 
 [node name="plattform1_1" type="StaticBody2D" parent="Generated/Plattform1" groups=["Destructable"]]
-position = Vector2(24, 24)
+position = Vector2(8, 8)
 script = ExtResource("5_d4fjd")
 
 [node name="collision1_1" type="CollisionShape2D" parent="Generated/Plattform1/plattform1_1" groups=["Destructable"]]
@@ -143,7 +135,7 @@ shape = SubResource("RectangleShape2D_gbryd")
 texture = ExtResource("6_6mypq")
 
 [node name="plattform1_2" type="StaticBody2D" parent="Generated/Plattform1" groups=["Destructable"]]
-position = Vector2(48, 24)
+position = Vector2(32, 8)
 script = ExtResource("5_d4fjd")
 
 [node name="collision1_2" type="CollisionShape2D" parent="Generated/Plattform1/plattform1_2" groups=["Destructable"]]
@@ -154,7 +146,7 @@ shape = SubResource("RectangleShape2D_gbryd")
 texture = ExtResource("6_6mypq")
 
 [node name="plattform1_3" type="StaticBody2D" parent="Generated/Plattform1" groups=["Destructable"]]
-position = Vector2(72, 24)
+position = Vector2(56, 8)
 script = ExtResource("5_d4fjd")
 
 [node name="collision1_3" type="CollisionShape2D" parent="Generated/Plattform1/plattform1_3" groups=["Destructable"]]
@@ -165,7 +157,7 @@ shape = SubResource("RectangleShape2D_gbryd")
 texture = ExtResource("6_6mypq")
 
 [node name="plattform1_4" type="StaticBody2D" parent="Generated/Plattform1" groups=["Destructable"]]
-position = Vector2(96, 24)
+position = Vector2(80, 8)
 script = ExtResource("5_d4fjd")
 
 [node name="collision1_4" type="CollisionShape2D" parent="Generated/Plattform1/plattform1_4" groups=["Destructable"]]

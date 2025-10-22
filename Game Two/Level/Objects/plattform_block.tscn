@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b06bigd041s7s"]
+
+[ext_resource type="Script" path="res://Level/Objects/plattform.gd" id="1_3vu43"]
+[ext_resource type="Texture2D" uid="uid://bkrf2t7joowek" path="res://images/Terrain/Dirt/Dirt1_unbroken.png" id="2_xn57d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3d2q"]
+size = Vector2(18, 18)
+
+[node name="plattform_block" type="StaticBody2D" groups=["Destructable"]]
+position = Vector2(8, 8)
+script = ExtResource("1_3vu43")
+
+[node name="collision" type="CollisionShape2D" parent="." groups=["Destructable"]]
+position = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_a3d2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="collision" groups=["Destructable"]]
+texture = ExtResource("2_xn57d")

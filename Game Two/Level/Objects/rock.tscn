@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://4yidbaaeiapl"]
+
+[ext_resource type="Texture2D" uid="uid://5fkd3ehevdgg" path="res://images/Terrain/Dirt/Dirt1_allmostbroken.png" id="1_dw741"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3jvpu"]
+
+[node name="Rock" type="RigidBody2D" groups=["Falling"]]
+position = Vector2(16, 16)
+can_sleep = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." groups=["Falling"]]
+shape = SubResource("CircleShape2D_3jvpu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." groups=["Falling"]]
+texture = ExtResource("1_dw741")
