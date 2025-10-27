@@ -15,9 +15,11 @@ var block_scene = load("res://Level/Objects/plattform_block.tscn")
 var rock_scene = load("res://Level/Objects/rock.tscn")
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	sprite_number = rng.randf_range(1, 5)
+	$Dimension_Timer.set_wait_time(rng.randf_range(10, 15))
+	$Dimension_Timer.start()
+	
+	sprite_number = rng.randi_range(0, 3)
 	$Plattforms/Plattform2/Plattform_Sprite_End.set_texture(sprites[sprite_number])
 	
 	_spawn()
@@ -90,3 +92,6 @@ func _spawn():
 	new_ghost.set_owner(new_ghost.get_parent())
 	new_ghost.position.x += rng.randf_range(500, 1000)
 	new_ghost.position.y += 600
+	
+func _on_dimension_timer_timeout():
+	get_tree().change_scene_to_file("res://Level/mobspawn.tscn")

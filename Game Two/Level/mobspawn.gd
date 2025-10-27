@@ -6,14 +6,15 @@ var rng = RandomNumberGenerator.new()
 
 var ghost_scene = load("res://ghost.tscn")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	$Dimension_Timer.set_wait_time(rng.randf_range(10, 15))
+	$Dimension_Timer.start()
+	
 	mob_node = find_child("Mobs")
 	_spawn()
 	player = $Player/player
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("peng_pause"):
 		$Player/player/Pause_Menu.show()
@@ -40,3 +41,7 @@ func _spawn():
 	new_ghost.set_owner(new_ghost.get_parent())
 	new_ghost.position.x += rng.randf_range(500, 1000)
 	new_ghost.position.y += 600
+
+
+func _on_dimension_timer_timeout():
+	get_tree().change_scene_to_file("res://Level/loop.tscn")

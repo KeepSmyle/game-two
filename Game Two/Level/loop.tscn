@@ -167,6 +167,9 @@ shape = SubResource("RectangleShape2D_gbryd")
 [node name="Sprite2D" type="Sprite2D" parent="Generated/Plattform1/plattform1_4/collision1_4" groups=["Destructable"]]
 texture = ExtResource("6_6mypq")
 
+[node name="Dimension_Timer" type="Timer" parent="."]
+
 [connection signal="pressed" from="Player/player/Pause_Menu/Continue" to="Player/player/Pause_Menu" method="_on_continue_pressed"]
 [connection signal="pressed" from="Player/player/Pause_Menu/Main_Menu" to="Player/player/Pause_Menu" method="_on_quit_pressed"]
 [connection signal="timeout" from="Mobspawn_Timer" to="." method="_on_mobspawn_timer_timeout"]
+[connection signal="timeout" from="Dimension_Timer" to="." method="_on_dimension_timer_timeout"]
