@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://cr4e6yoye0wp4"]
+
+[ext_resource type="Script" path="res://Level/beach.gd" id="1_foeqg"]
+[ext_resource type="Texture2D" uid="uid://b15arnmmiu5df" path="res://images/Terrain/Beach/Beach_Parallax.png" id="2_lk6py"]
+[ext_resource type="PackedScene" uid="uid://bgat1fxj32g5o" path="res://Player/Player_Fight/player_fight.tscn" id="3_501fm"]
+[ext_resource type="Texture2D" uid="uid://dtcj8a4qxdgmi" path="res://images/Terrain/Beach/Palmtree_4.png" id="3_c4vyb"]
+[ext_resource type="Texture2D" uid="uid://bu3jixym6vic5" path="res://images/Terrain/Beach/Palmtree_1.png" id="3_kxnk6"]
+[ext_resource type="Script" path="res://Menu/Pause_Menu.gd" id="4_kdgsx"]
+[ext_resource type="Texture2D" uid="uid://dy1cb4y4kpb73" path="res://images/Terrain/Beach/Palmtree_2.png" id="4_ujvy3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olkvq"]
+size = Vector2(5769, 66)
+
+[node name="Beach" type="Node2D"]
+script = ExtResource("1_foeqg")
+
+[node name="Walls_Floors" type="Node2D" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="Walls_Floors"]
+position = Vector2(0, 576)
+
+[node name="Panel" type="Panel" parent="Walls_Floors/Floor"]
+offset_right = 5768.0
+offset_bottom = 64.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_Floors/Floor"]
+position = Vector2(2883.5, 32)
+shape = SubResource("RectangleShape2D_olkvq")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(2880, 352)
+scale = Vector2(7.89726, 6.96)
+texture = ExtResource("2_lk6py")
+
+[node name="Palms" type="Node2D" parent="."]
+
+[node name="Sprite_Start" type="Sprite2D" parent="Palms"]
+position = Vector2(2000, 450)
+scale = Vector2(3, 3)
+texture = ExtResource("3_c4vyb")
+
+[node name="Sprite_End" type="Sprite2D" parent="Palms"]
+position = Vector2(4883, 450)
+scale = Vector2(3, 3)
+texture = ExtResource("4_ujvy3")
+
+[node name="Palm_1" type="Sprite2D" parent="Palms"]
+position = Vector2(312, 440)
+scale = Vector2(3, 3)
+texture = ExtResource("3_kxnk6")
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="player" parent="Player" instance=ExtResource("3_501fm")]
+position = Vector2(200, 536)
+
+[node name="Camera2D" type="Camera2D" parent="Player/player" groups=["Player"]]
+position = Vector2(128, -80)
+zoom = Vector2(1.5, 1.5)
+
+[node name="Pause_Menu" type="Node2D" parent="Player/player"]
+process_mode = 2
+visible = false
+position = Vector2(8, -72)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("4_kdgsx")
+
+[node name="Continue" type="Button" parent="Player/player/Pause_Menu"]
+offset_left = -114.286
+offset_top = -102.857
+offset_right = 109.714
+offset_bottom = -46.8571
+text = "Continue"
+metadata/_edit_use_anchors_ = true
+
+[node name="Main_Menu" type="Button" parent="Player/player/Pause_Menu"]
+offset_left = -114.286
+offset_top = 125.714
+offset_right = 109.714
+offset_bottom = 189.714
+text = "Main Menu"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Player/player/Pause_Menu/Continue" to="Player/player/Pause_Menu" method="_on_continue_pressed"]
+[connection signal="pressed" from="Player/player/Pause_Menu/Main_Menu" to="Player/player/Pause_Menu" method="_on_quit_pressed"]

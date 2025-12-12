@@ -17,7 +17,7 @@ var rock_scene = load("res://Level/Objects/rock.tscn")
 
 func _ready():
 	$Dimension_Timer.set_wait_time(rng.randf_range(10, 15))
-	$Dimension_Timer.start()
+	#$Dimension_Timer.start()
 	
 	sprite_number = rng.randi_range(0, 3)
 	$Plattforms/Plattform2/Plattform_Sprite_End.set_texture(sprites[sprite_number])

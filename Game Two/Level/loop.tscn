@@ -8,35 +8,19 @@
 [ext_resource type="Script" path="res://Level/Objects/plattform.gd" id="5_d4fjd"]
 [ext_resource type="Texture2D" uid="uid://bkrf2t7joowek" path="res://images/Terrain/Dirt/Dirt1_unbroken.png" id="6_6mypq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6x0hx"]
-size = Vector2(1954, 66)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i834i"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpmsw"]
 size = Vector2(232, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbryd"]
 size = Vector2(18, 18)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6x0hx"]
+size = Vector2(1954, 66)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i834i"]
+
 [node name="Loop" type="Node2D"]
 script = ExtResource("1_l2alr")
-
-[node name="Walls_Floors" type="Node2D" parent="."]
-
-[node name="Floor" type="StaticBody2D" parent="Walls_Floors" groups=["Terrain"]]
-position = Vector2(0, 568)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_Floors/Floor" groups=["Terrain"]]
-position = Vector2(975, 39)
-shape = SubResource("RectangleShape2D_6x0hx")
-
-[node name="Panel" type="Panel" parent="Walls_Floors/Floor"]
-offset_top = 8.0
-offset_right = 1952.0
-offset_bottom = 72.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_i834i")
-metadata/_edit_use_anchors_ = true
 
 [node name="Player" type="Node2D" parent="."]
 
@@ -44,7 +28,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(200, 536)
 
 [node name="Camera2D" type="Camera2D" parent="Player/player" groups=["Player"]]
-position = Vector2(0, -8)
+position = Vector2(128, -80)
 zoom = Vector2(1.5, 1.5)
 
 [node name="Pause_Menu" type="Node2D" parent="Player/player"]
@@ -168,6 +152,22 @@ shape = SubResource("RectangleShape2D_gbryd")
 texture = ExtResource("6_6mypq")
 
 [node name="Dimension_Timer" type="Timer" parent="."]
+
+[node name="Walls_Floors" type="Node2D" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="Walls_Floors" groups=["Terrain"]]
+position = Vector2(0, 568)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_Floors/Floor" groups=["Terrain"]]
+position = Vector2(975, 39)
+shape = SubResource("RectangleShape2D_6x0hx")
+
+[node name="Panel" type="Panel" parent="Walls_Floors/Floor"]
+offset_top = 8.0
+offset_right = 1952.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i834i")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Player/player/Pause_Menu/Continue" to="Player/player/Pause_Menu" method="_on_continue_pressed"]
 [connection signal="pressed" from="Player/player/Pause_Menu/Main_Menu" to="Player/player/Pause_Menu" method="_on_quit_pressed"]

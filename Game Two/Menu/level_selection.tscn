@@ -36,7 +36,16 @@ offset_bottom = 128.0
 toggle_mode = true
 text = "Loop"
 
+[node name="Beach" type="Button" parent="."]
+offset_left = 704.0
+offset_top = 64.0
+offset_right = 770.0
+offset_bottom = 128.0
+toggle_mode = true
+text = "Beach"
+
 [connection signal="pressed" from="Arena" to="." method="_on_arena_pressed"]
 [connection signal="pressed" from="Mobspawn" to="." method="_on_mobspawn_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="Loop" to="." method="_on_mobspawn_2_pressed"]
+[connection signal="pressed" from="Loop" to="." method="_on_loop_pressed"]
+[connection signal="pressed" from="Beach" to="." method="_on_beach_pressed"]
