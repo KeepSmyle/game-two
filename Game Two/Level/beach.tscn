@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cr4e6yoye0wp4"]
+[gd_scene load_steps=8 format=3 uid="uid://cr4e6yoye0wp4"]
 
 [ext_resource type="Script" path="res://Level/beach.gd" id="1_foeqg"]
 [ext_resource type="Texture2D" uid="uid://b15arnmmiu5df" path="res://images/Terrain/Beach/Beach_Parallax.png" id="2_lk6py"]
 [ext_resource type="PackedScene" uid="uid://bgat1fxj32g5o" path="res://Player/Player_Fight/player_fight.tscn" id="3_501fm"]
 [ext_resource type="Texture2D" uid="uid://dtcj8a4qxdgmi" path="res://images/Terrain/Beach/Palmtree_4.png" id="3_c4vyb"]
-[ext_resource type="Texture2D" uid="uid://bu3jixym6vic5" path="res://images/Terrain/Beach/Palmtree_1.png" id="3_kxnk6"]
 [ext_resource type="Script" path="res://Menu/Pause_Menu.gd" id="4_kdgsx"]
 [ext_resource type="Texture2D" uid="uid://dy1cb4y4kpb73" path="res://images/Terrain/Beach/Palmtree_2.png" id="4_ujvy3"]
 
@@ -17,6 +16,7 @@ script = ExtResource("1_foeqg")
 [node name="Walls_Floors" type="Node2D" parent="."]
 
 [node name="Floor" type="StaticBody2D" parent="Walls_Floors"]
+visible = false
 position = Vector2(0, 576)
 
 [node name="Panel" type="Panel" parent="Walls_Floors/Floor"]
@@ -48,15 +48,12 @@ position = Vector2(4883, 450)
 scale = Vector2(3, 3)
 texture = ExtResource("4_ujvy3")
 
-[node name="Palm_1" type="Sprite2D" parent="Palms"]
-position = Vector2(312, 440)
-scale = Vector2(3, 3)
-texture = ExtResource("3_kxnk6")
+[node name="Generated_Palms" type="Node2D" parent="Palms"]
 
 [node name="Player" type="Node2D" parent="."]
 
 [node name="player" parent="Player" instance=ExtResource("3_501fm")]
-position = Vector2(200, 536)
+position = Vector2(200, 555)
 
 [node name="Camera2D" type="Camera2D" parent="Player/player" groups=["Player"]]
 position = Vector2(128, -80)
@@ -84,6 +81,8 @@ offset_right = 109.714
 offset_bottom = 189.714
 text = "Main Menu"
 metadata/_edit_use_anchors_ = true
+
+[node name="Mobs" type="Node2D" parent="."]
 
 [connection signal="pressed" from="Player/player/Pause_Menu/Continue" to="Player/player/Pause_Menu" method="_on_continue_pressed"]
 [connection signal="pressed" from="Player/player/Pause_Menu/Main_Menu" to="Player/player/Pause_Menu" method="_on_quit_pressed"]
