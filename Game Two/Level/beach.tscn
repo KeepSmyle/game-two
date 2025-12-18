@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cr4e6yoye0wp4"]
+[gd_scene load_steps=9 format=3 uid="uid://cr4e6yoye0wp4"]
 
 [ext_resource type="Script" path="res://Level/beach.gd" id="1_foeqg"]
 [ext_resource type="Texture2D" uid="uid://b15arnmmiu5df" path="res://images/Terrain/Beach/Beach_Parallax.png" id="2_lk6py"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dtcj8a4qxdgmi" path="res://images/Terrain/Beach/Palmtree_4.png" id="3_c4vyb"]
 [ext_resource type="Script" path="res://Menu/Pause_Menu.gd" id="4_kdgsx"]
 [ext_resource type="Texture2D" uid="uid://dy1cb4y4kpb73" path="res://images/Terrain/Beach/Palmtree_2.png" id="4_ujvy3"]
+[ext_resource type="PackedScene" uid="uid://c3wmjn5wjwp7k" path="res://Player/Player_Fight/throwable.tscn" id="7_o1up3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olkvq"]
 size = Vector2(5769, 66)
@@ -83,6 +84,9 @@ text = "Main Menu"
 metadata/_edit_use_anchors_ = true
 
 [node name="Mobs" type="Node2D" parent="."]
+
+[node name="Throwable" parent="." groups=["Throwable"] instance=ExtResource("7_o1up3")]
+position = Vector2(512, 568)
 
 [connection signal="pressed" from="Player/player/Pause_Menu/Continue" to="Player/player/Pause_Menu" method="_on_continue_pressed"]
 [connection signal="pressed" from="Player/player/Pause_Menu/Main_Menu" to="Player/player/Pause_Menu" method="_on_quit_pressed"]

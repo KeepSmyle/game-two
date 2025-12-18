@@ -4,6 +4,8 @@ var weapon_animation
 var sprite
 var weapon_hand_position
 var hammer_swing = "hammer_swing_right"
+var reachable
+var throwable
 
 func _ready():
 	weapon_animation = $Weapon.find_child("AnimationPlayer")
@@ -26,3 +28,18 @@ func _physics_process(delta):
 	if Input.is_action_pressed("peng_action"):
 		$Weapon._swing(hammer_swing)
 	
+	if throwable:
+		throwable.global_position = self.global_position
+		
+		
+func _input(event):
+	if Input.is_action_pressed("peng_throw"):
+		if throwable:
+			throwable.thrown = true
+			throwable = null
+		elif reachable:
+			throwable = reachable
+			reachable = null
+			#placing the throwable in hand while sprite is flipped
+			#if get_node("AnimatedSprite2D").flip_h:
+			#	throwable.transform[2].x -= 2* $Hand.transform[2].x
