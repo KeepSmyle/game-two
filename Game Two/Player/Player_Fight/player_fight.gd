@@ -8,6 +8,9 @@ var reachable
 var throwable
 
 func _ready():
+	$ProgressBar.get("theme_override_styles/fill").set_bg_color(Color.RED)
+	$ProgressBar.set_value(Global.player_hp)
+	
 	weapon_animation = $Weapon.find_child("AnimationPlayer")
 	sprite = $Weapon.find_child("Sprite")
 	weapon_hand_position = $Weapon.transform[2].x

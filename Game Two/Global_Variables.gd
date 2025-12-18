@@ -4,6 +4,8 @@ var character = "Bounce_Guy"
 var level = "Beach"
 var portal_ready = true
 
+var player_hp = 10
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
